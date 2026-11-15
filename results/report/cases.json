@@ -1,0 +1,14 @@
+[
+  {
+    "image": "beagle_201.jpg",
+    "label": "beagle",
+    "reduced": "boxer",
+    "roi": "beagle"
+  },
+  {
+    "image": "beagle_55.jpg",
+    "label": "beagle",
+    "reduced": "beagle",
+    "roi": "boxer"
+  }
+]

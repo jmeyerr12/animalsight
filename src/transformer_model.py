@@ -18,7 +18,8 @@ from src.roi import ROI_VERSION, extract_roi, validate_image
 MODEL_NAME = "facebook/dinov2-small"
 MODEL_REVISION = "ed25f3a31f01632728cabb09d1542f84ab7b0056"
 SCHEMA_VERSION = 1
-PREPROCESSING = "rgb-pil-bicubic-shortest-edge-256/224-center-crop-v1"
+PREPROCESSING = "rgb-pil-bicubic-letterbox-round-fill-124-116-104-v1"
+LETTERBOX_FILL = (124, 116, 104)  # DINOv2 RGB mean, rounded to uint8.
 REDUCED_SIZES = (28, 42, 56, 84, 112, 168)
 
 
@@ -72,18 +73,26 @@ def load_runtime(device="auto", *, local_files_only=False, threads=4):
     return runtime
 
 
+def prepare_image(image, config):
+    """Fit the full image (or selected ROI) inside a square without cropping."""
+    validate_image(image)
+    if config['roi_scale'] is not None:
+        image, _ = extract_roi(image, config['roi_scale'])
+    rgb = Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+    size = config['resolution']
+    scale = size / max(rgb.size)
+    width, height = (max(1, round(side * scale)) for side in rgb.size)
+    resized = rgb.resize((width, height), Image.Resampling.BICUBIC)
+    canvas = Image.new('RGB', (size, size), LETTERBOX_FILL)
+    canvas.paste(resized, ((size - width) // 2, (size - height) // 2))
+    return canvas
+
+
 def prepare_inputs(images, runtime, config):
-    rgb_images = []
-    for image in images:
-        validate_image(image)
-        if config['roi_scale'] is not None:
-            image, _ = extract_roi(image, config['roi_scale'])
-        rgb_images.append(Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB)))
+    rgb_images = [prepare_image(image, config) for image in images]
     size = config['resolution']
     inputs = runtime['processor'](images=rgb_images, return_tensors="pt",
-                                  size={"shortest_edge": size * 256 // 224},
-                                  crop_size={"height": size, "width": size},
-                                  do_resize=True, do_center_crop=True)
+                                  do_resize=False, do_center_crop=False)
     if tuple(inputs['pixel_values'].shape) != (len(images), 3, size, size):
         raise ValueError(f"Unexpected pixel_values shape: {inputs['pixel_values'].shape}")
     return inputs.to(runtime['device'])

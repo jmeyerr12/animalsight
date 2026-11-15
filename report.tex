@@ -27,16 +27,20 @@ Novembro de 2026}
 Este trabalho investiga se uma região de interesse (ROI), selecionada
 por processamento clássico de imagens, melhora a classificação de
 raças de cães em resoluções reduzidas. O AnimalSight combina o DINOv2
-congelado com um classificador SVM e compara o processamento convencional
+congelado com um classificador SVM e compara a redução da imagem inteira
 com um recorte baseado em gradientes Sobel. Foram utilizadas cinco raças
 do Oxford-IIIT Pet, com 500 imagens de treinamento e 499 de teste.
-A entrada de 112\,$\times$\,112 pixels alcançou 99,40\% de acurácia,
-frente a 100,00\% em 224\,$\times$\,224, com ganho de velocidade de
-$2{,}61\times$ na CPU utilizada. A ROI atingiu 97,39\% em 112 pixels
-e permaneceu abaixo do redimensionamento convencional em todas as
-resoluções avaliadas. Embora tenha corrigido erros individuais, ela
-introduziu mais erros do que corrigiu. Os resultados motivam o estudo
-de métodos que delimitem melhor o animal antes da redução.
+Baseline e Reduced preservam a proporção e todo o campo de visão,
+completando a entrada quadrada com bordas. O baseline alcançou 100,00\%
+de acurácia em 224\,$\times$\,224 pixels. Em 112\,$\times$\,112,
+a imagem inteira atingiu 95,39\% e a ROI, 97,60\%.
+Os tempos médios foram de 222,34 ms para o baseline, 81,52 ms
+para o Reduced e 87,37 ms para a ROI em CPU.
+A ROI superou a imagem inteira em todas as resoluções reduzidas
+avaliadas, embora ainda tenha introduzido erros individuais.
+Os resultados indicam que concentrar a entrada em uma região pode
+preservar detalhes úteis, mas motivam métodos que delimitem melhor
+o animal e evitem excluir partes importantes.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -83,20 +87,33 @@ anotações de localização e segmentação~\cite{pets}, elas não foram
 utilizadas para construir a ROI deste experimento.
 
 \subsection{Configurações e pré-processamento}
-O \textit{Baseline} recebe uma entrada de 224\,$\times$\,224 pixels.
-O \textit{Reduced} aplica o mesmo processamento à imagem original,
+O \textit{Baseline} preserva a imagem inteira em uma entrada de
+224\,$\times$\,224 pixels. O \textit{Reduced} aplica o mesmo processamento,
 com uma resolução menor. O \textit{ROI Reduced} seleciona primeiro
 um recorte quadrado e aplica a ele o processamento do Reduced.
 Assim, a comparação entre Reduced e ROI Reduced mantém a mesma
 resolução de entrada e altera a região da imagem utilizada.
 
-Após a seleção opcional da ROI, a imagem é convertida para RGB,
-redimensionada com interpolação bicúbica, recortada no centro e
-normalizada conforme o processador do DINOv2. Para uma entrada de
-lado $r$, a menor dimensão é redimensionada para
-$\lfloor 256r/224 \rfloor$, seguida de recorte central $r\times r$.
-Portanto, o Reduced também realiza o recorte central convencional;
-a diferença da ROI está na seleção prévia de uma região por gradientes.
+Após a seleção opcional da ROI, a imagem é convertida para RGB e
+redimensionada com interpolação bicúbica, preservando sua proporção.
+Para largura $W$, altura $H$ e entrada de lado $r$, o fator de escala
+é $r/\max(W,H)$. As dimensões resultantes são arredondadas ao inteiro
+mais próximo, com mínimo de um pixel, e a imagem é centralizada em
+uma tela $r\times r$. Esse procedimento é chamado de \textit{letterbox}.
+
+As bordas recebem a cor RGB $(124,116,104)$, correspondente à média
+do DINOv2 arredondada para oito bits, ficando próximas de zero após
+a normalização. O redimensionamento e o recorte central automáticos
+do processador são desativados. Por exemplo, uma fotografia de
+$600\times400$ torna-se $112\times75$ e recebe bordas para completar
+$112\times112$. Baseline e Reduced preservam todo o campo de visão;
+na ROI, apenas a região selecionada é preservada. Como a ROI é
+quadrada, ela ocupa toda a entrada e não necessita de preenchimento.
+
+O preenchimento evita perda de campo de visão, mas ocupa parte dos
+pixels disponíveis em imagens retangulares. Assim, a comparação
+avalia o compromisso entre manter todo o conteúdo em menor escala
+e dedicar a entrada a uma região selecionada.
 
 Foram avaliados $r\in\{112,84,56,42,28\}$, mantendo a escala da ROI
 em 0,8. Com o baseline, isso totaliza 11 configurações.
@@ -160,21 +177,26 @@ reexecução do experimento, mas não para medir a inferência.
 \section{Resultados e Discussão}
 \subsection{Comparação principal}
 A Tabela~\ref{tab:principal} apresenta os resultados em 224 e 112 pixels.
-O baseline acertou as 499 imagens. O Reduced acertou 496, alcançando
-99,40\% de acurácia, com perda de apenas 0,60 ponto percentual.
-Seu tempo médio caiu de 217,01 para 83,20 ms por imagem, correspondendo
-a um ganho de velocidade de $2{,}61\times$.
+O baseline acertou as 499 imagens. O Reduced acertou 476, alcançando
+95,39\% de acurácia, com perda de 4,61 pontos percentuais.
+Seu tempo médio caiu de 222,34 para 81,52 ms por imagem, correspondendo
+a um ganho de velocidade de $2{,}73\times$.
 
-O ROI Reduced acertou 486 imagens e atingiu 97,39\% de acurácia.
-Seu tempo médio foi de 72,18 ms. Como as duas alternativas em 112 pixels
-utilizam 65 tokens, esse tempo menor não demonstra, por si só, uma
-vantagem computacional da ROI. Houve dispersão nas medidas: os desvios
-padrão foram 53,96, 53,75 e 26,00 ms para baseline, Reduced e ROI Reduced,
-respectivamente. Os tempos descrevem esta execução no equipamento utilizado.
+O ROI Reduced acertou 487 imagens e atingiu 97,60\% de acurácia,
+superando o Reduced em 2,20 pontos percentuais. Sua perda em relação
+ao baseline foi de 2,40 pontos percentuais.
+Seu tempo médio foi de 87,37 ms, com ganho de $2{,}54\times$ em relação
+ao baseline. A ROI foi 5,85 ms mais lenta que o Reduced nesta execução,
+com maior acurácia. Ambas utilizam 65 tokens, e a seleção da ROI
+acrescenta processamento. Houve dispersão nas medidas: os desvios
+padrão foram 66,51, 22,08 e 26,51 ms para baseline, Reduced e ROI Reduced,
+respectivamente. Esses tempos descrevem a execução no equipamento
+utilizado; a diferença não isola o custo da seleção da ROI.
 
 Além disso, reduzir a entrada não comprime o modelo: os pesos do DINOv2
 são compartilhados e mantêm o mesmo tamanho. O ganho observado está
-no tempo de processamento, com pequena perda de acurácia no Reduced 112.
+no tempo de processamento. Em acurácia, a ROI preserva melhor o
+resultado de referência do que a imagem inteira reduzida em 112 pixels.
 
 \begin{table}[t]
 \caption{Comparação nas 499 imagens de teste. Tempo médio por imagem;
@@ -187,9 +209,9 @@ ganho relativo ao baseline. Reduced e ROI Reduced utilizam 112 pixels.}
 \toprule
 Configuração & Acc. (\%) & F1 macro & Tempo (ms) & Ganho \\
 \midrule
-Baseline    & 100,00 & 1,0000 & 217,01 & $1{,}00\times$ \\
-Reduced     & 99,40  & 0,9940 & 83,20  & $2{,}61\times$ \\
-ROI Reduced & 97,39  & 0,9740 & 72,18  & $3{,}01\times$ \\
+Baseline    & 100,00 & 1,0000 & 222,34 & $1{,}00\times$ \\
+Reduced     & 95,39  & 0,9541 & 81,52  & $2{,}73\times$ \\
+ROI Reduced & 97,60  & 0,9760 & 87,37  & $2{,}54\times$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -197,15 +219,17 @@ ROI Reduced & 97,39  & 0,9740 & 72,18  & $3{,}01\times$ \\
 \subsection{Efeito de reduções mais intensas}
 A Tabela~\ref{tab:resolucoes} e a Fig.~\ref{fig:resolucoes} mostram
 que diminuir ainda mais a entrada intensifica a perda de acurácia.
-O Reduced mantém 96,19\% em 84 pixels, mas cai para 75,55\% em 56,
-64,33\% em 42 e 57,11\% em 28. A passagem de 84 para 56 pixels
-representa uma queda de 20,64 pontos percentuais.
+O Reduced mantém 87,98\% em 84 pixels, mas cai para 60,32\% em 56,
+47,29\% em 42 e 34,47\% em 28. A passagem de 84 para 56 pixels
+representa uma queda de 27,66 pontos percentuais.
 
-A ROI não supera o Reduced em nenhuma resolução. A menor diferença
-observada ocorre em 56 pixels: 74,75\% contra 75,55\%, uma desvantagem
-de 0,80 ponto percentual. Em 28 pixels, a diferença aumenta para
-3,01 pontos percentuais. Portanto, a maior redução da imagem não
-tornou esta estratégia de ROI vantajosa em acurácia global.
+A ROI supera o Reduced em todas as resoluções avaliadas. Em 84 pixels,
+atinge 95,19\%, próxima dos 95,39\% da imagem inteira em 112 pixels.
+Em 56 pixels, a vantagem é de 15,63 pontos percentuais e, em 28,
+chega a 17,64 pontos. Essa vantagem não cresce de maneira estritamente
+monotônica, mas é maior nas entradas menores do que em 112 pixels.
+Mesmo com ROI, a acurácia cai para 52,10\% em 28 pixels: selecionar
+uma região ameniza a perda de detalhes, mas não a elimina.
 
 \begin{table}[t]
 \caption{Acurácia por resolução e efeito da ROI sobre as previsões do
@@ -218,11 +242,11 @@ Reduced. Corrige: erro que vira acerto; piora: acerto que vira erro.}
 \toprule
 Lado (px) & Reduced (\%) & ROI (\%) & Corrige & Piora \\
 \midrule
-112 & 99,40 & 97,39 & 1  & 11 \\
-84  & 96,19 & 94,99 & 10 & 16 \\
-56  & 75,55 & 74,75 & 52 & 56 \\
-42  & 64,33 & 61,92 & 59 & 71 \\
-28  & 57,11 & 54,11 & 72 & 87 \\
+112 & 95,39 & 97,60 & 14  & 3  \\
+84  & 87,98 & 95,19 & 45  & 9  \\
+56  & 60,32 & 75,95 & 111 & 33 \\
+42  & 47,29 & 61,32 & 125 & 55 \\
+28  & 34,47 & 52,10 & 151 & 63 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -236,20 +260,23 @@ o resultado do baseline em 224 pixels.}
 \end{figure}
 
 \subsection{Quando a ROI ajuda ou prejudica}
-A ausência de ganho global não significa que o recorte prejudique
-todas as imagens. Em 112 pixels, a ROI corrige um erro do Reduced,
-mas introduz 11. Em 28 pixels, corrige 72 e introduz 87, produzindo
-um saldo de 15 acertos a menos. Esses números explicam por que
-existem exemplos favoráveis à ROI mesmo quando a média é inferior.
+O ganho global não significa que o recorte beneficie todas as imagens.
+Em 112 pixels, a ROI corrige 14 erros do Reduced e introduz três,
+produzindo um saldo de 11 acertos a mais. Em 28 pixels, corrige 151
+e introduz 63, com saldo de 88 acertos adicionais. Assim, existem
+falhas de seleção mesmo quando o efeito médio é positivo.
 
 A Fig.~\ref{fig:casos} apresenta dois casos de teste em 112 pixels.
-Em \texttt{samoyed\_91}, o Reduced prevê boxer e a ROI recupera a classe
-samoyed. Em \texttt{beagle\_30}, o Reduced acerta beagle e a ROI prevê
+Em \texttt{beagle\_201}, o Reduced prevê boxer e a ROI recupera a classe
+beagle, com o animal ocupando uma parcela maior da entrada.
+Em \texttt{beagle\_55}, o Reduced acerta beagle e a ROI prevê
 boxer; nesse exemplo, a ROI deixa a cabeça do animal fora da entrada.
 Os casos foram selecionados pelas diferenças nas previsões
 para ilustrar os dois comportamentos, não para estimar sua frequência.
 
-Uma hipótese para as perdas é que a soma de gradientes favoreça
+Uma hipótese para os ganhos é que o recorte preserve mais detalhes
+do animal ao dedicar a ele uma parcela maior da entrada. Já as perdas
+podem ocorrer porque a soma de gradientes favorece
 texturas e contornos sem distinguir o animal do cenário. Além disso,
 a janela quadrada fixa pode retirar partes discriminativas ou alterar
 a proporção entre cabeça, corpo e contexto. A comparação mostra o
@@ -262,7 +289,8 @@ explica cada erro.
 \caption{Exemplos do conjunto Oxford-IIIT Pet~\cite{pets} em que a ROI
 corrige um erro (acima) e introduz um erro (abaixo). O retângulo indica
 a ROI inicial; as outras colunas mostram as entradas efetivas em
-112 pixels, com a normalização desfeita para visualização.}
+112 pixels, antes da normalização. O Reduced preserva toda a imagem
+e completa as bordas; a ROI utiliza apenas a região selecionada.}
 \label{fig:casos}
 \end{figure}
 
@@ -277,19 +305,29 @@ As medições de tempo abrangem apenas 224 e 112 pixels; não permitem
 quantificar o ganho de velocidade das resoluções menores. Também
 não foi estabelecida significância estatística para as diferenças
 observadas. Os resultados sustentam a comparação neste experimento,
-sem demonstrar que toda seleção de ROI seja inferior.
+sem demonstrar que qualquer seleção de ROI seja superior. A comparação
+também inclui o efeito das bordas: em fotografias retangulares, parte
+dos tokens do Reduced representa preenchimento, enquanto a ROI
+quadrada ocupa toda a entrada.
 
 \section{Conclusão e Trabalhos Futuros}
-A redução convencional para 112\,$\times$\,112 apresentou uma relação
-favorável entre acurácia e tempo de inferência: 99,40\% de acertos e
-ganho de $2{,}61\times$ em relação ao baseline. Reduções mais intensas
-diminuíram a acurácia, especialmente abaixo de 84 pixels.
+A redução da imagem inteira para 112\,$\times$\,112 alcançou 95,39\%
+de acurácia, enquanto a ROI atingiu 97,60\%, diante de 100,00\%
+do baseline em 224 pixels. A ROI também foi superior em 84, 56,
+42 e 28 pixels. Portanto, a hipótese de que concentrar a entrada
+em uma região pode amenizar a perda causada pela redução encontrou
+suporte neste experimento.
 
-A hipótese de que a ROI por gradientes compensaria essa perda não
-se confirmou. O recorte ajudou algumas imagens, mas introduziu mais
-erros do que corrigiu em todas as resoluções. Para a configuração
-estudada, o Reduced 112 é a alternativa mais adequada quando se busca
-diminuir o tempo mantendo a acurácia próxima à referência.
+Na CPU utilizada, o Reduced 112 foi $2{,}73\times$ mais rápido que
+o baseline e a ROI 112, $2{,}54\times$. A ROI ofereceu maior acurácia
+que o Reduced com acréscimo de 5,85 ms no tempo médio por imagem.
+
+Preservar todo o campo de visão não garante preservar os detalhes
+mais úteis à classificação. A ROI corrigiu mais erros do que
+introduziu, mas ainda excluiu partes relevantes em algumas imagens.
+Em resoluções muito pequenas, ambas as estratégias perderam bastante
+acurácia. A escolha deve considerar essa perda junto ao tempo medido,
+sem assumir que menos pixels mantenham o desempenho original.
 
 Como trabalho futuro, propõe-se melhorar a delimitação do animal,
 combinando gradientes com segmentação de primeiro plano e operações

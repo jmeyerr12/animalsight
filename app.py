@@ -10,7 +10,7 @@ from src.benchmark import timed_prediction
 from src.experiments import load_trained_artifacts
 from src.pipeline import BREEDS, ROOT
 from src.roi import extract_roi
-from src.transformer_model import config_id, configurations, load_runtime
+from src.transformer_model import config_id, configurations, load_runtime, prepare_image
 
 
 def decode_upload(contents):
@@ -30,7 +30,7 @@ def load_resources(artifact_stamps):
 
 
 def main():
-    st.set_page_config(page_title='AnimalSight', page_icon='🐾', layout='wide')
+    st.set_page_config(page_title='AnimalSight', layout='wide')
     st.title('AnimalSight')
     st.write('Classical ROI selection + frozen DINOv2 + SVM')
     breeds = ', '.join(breed.replace('_', ' ') for breed in sorted(BREEDS))
@@ -48,7 +48,7 @@ def main():
         return
     try:
         image = decode_upload(upload.getvalue())
-        crop, (x1, y1, x2, y2), gradient = extract_roi(image, return_gradient=True)
+        _, (x1, y1, x2, y2), gradient = extract_roi(image, return_gradient=True)
     except (ValueError, cv2.error) as error:
         st.error(str(error))
         return
@@ -59,8 +59,8 @@ def main():
     columns[1].image(preview, channels='BGR', caption='Classical ROI selection')
     normalized = cv2.normalize(gradient, None, 0, 255, cv2.NORM_MINMAX).astype(np.uint8)
     columns[2].image(normalized, caption='Gradient magnitude')
-    columns[3].image(crop, channels='BGR', caption='Selected crop')
-    st.caption('The selected crop is used only by ROI Reduced. The same resize and normalization policy is used during training and prediction.')
+    columns[3].image(prepare_image(image, configs[selected]), caption='Actual model input (before normalization)')
+    st.caption('Baseline and Reduced keep the entire photograph, preserve its proportions and fill the remaining borders. ROI Reduced keeps only the selected region. No center crop is applied.')
     if st.button('Classify', disabled=bool(missing), type='primary'):
         try:
             stamps = tuple((str(path), path.stat().st_mtime_ns) for path in model_paths)

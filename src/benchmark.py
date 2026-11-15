@@ -120,7 +120,7 @@ def run_benchmark(runtime, configs, *, dataset, models_dir, results_dir, repeats
     metadata = {"timestamp_utc": datetime.now(timezone.utc).isoformat(), "environment": environment(runtime),
                 "seed": seed, "repeats": repeats, "warmup_per_configuration_per_repeat": warmup,
                 "test_files": file_manifest(paths), "training_fingerprint": fingerprint(artifacts[0]['training']),
-                "timing_includes": ['BGR to RGB/PIL conversion', 'ROI if enabled', 'image processor',
+                "timing_includes": ['BGR to RGB/PIL conversion', 'ROI if enabled', 'letterbox resize and padding', 'image normalization',
                                     'device transfers', 'DINOv2 CLS extraction', 'scaler and SVM prediction'],
                 "timing_excludes": ['disk image decoding', 'weights download', 'model/classifier loading',
                                     'training', 'feature caches', 'warm-up'],

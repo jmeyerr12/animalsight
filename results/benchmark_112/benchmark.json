@@ -1,5 +1,5 @@
 {
-  "combined_storage_bytes": 91210555,
+  "combined_storage_bytes": 91358107,
   "environment": {
     "batch_size": 1,
     "cpu": "Intel(R) Core(TM) i7-1065G7 CPU @ 1.30GHz",
@@ -18,7 +18,7 @@
       "opencv": "5.0.0",
       "patch_size": 14,
       "pillow": "12.3.0",
-      "preprocessing": "rgb-pil-bicubic-shortest-edge-256/224-center-crop-v1",
+      "preprocessing": "rgb-pil-bicubic-letterbox-round-fill-124-116-104-v1",
       "processor": {
         "crop_size": {
           "height": 224,
@@ -106,10 +106,10 @@
       ],
       "dinov2_tensor_bytes": 88226304,
       "macro_f1": 1.0,
-      "mean_latency_ms": 217.0149338777555,
+      "mean_latency_ms": 222.34290206913826,
       "measurements": 998,
-      "median_latency_ms": 229.44746350000003,
-      "p95_latency_ms": 285.98343775,
+      "median_latency_ms": 231.28198500000002,
+      "p95_latency_ms": 305.3083685999999,
       "report": {
         "accuracy": 1.0,
         "beagle": {
@@ -159,13 +159,13 @@
       "samples": 499,
       "shared_dinov2_storage_bytes": 88250943,
       "speedup": 1.0,
-      "std_latency_ms": 53.96030300250177,
-      "svm_storage_bytes": 835812,
+      "std_latency_ms": 66.51246146114889,
+      "svm_storage_bytes": 879764,
       "tokens": 257,
-      "total_storage_bytes": 89086755
+      "total_storage_bytes": 89130707
     },
     {
-      "accuracy": 0.9939879759519038,
+      "accuracy": 0.9539078156312625,
       "classes": [
         "beagle",
         "boxer",
@@ -176,103 +176,103 @@
       "configuration": "reduced_112",
       "confusion_matrix": [
         [
-          99,
-          1,
+          93,
+          7,
           0,
           0,
           0
         ],
         [
-          1,
-          98,
-          0,
+          3,
+          93,
+          3,
           0,
           0
         ],
         [
+          7,
+          1,
+          92,
+          0,
+          0
+        ],
+        [
+          0,
           0,
           0,
           100,
-          0,
           0
         ],
         [
+          1,
           0,
           1,
           0,
-          99,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          100
+          98
         ]
       ],
       "dinov2_tensor_bytes": 88226304,
-      "macro_f1": 0.9939798994974876,
-      "mean_latency_ms": 83.19791080460922,
+      "macro_f1": 0.954087841197085,
+      "mean_latency_ms": 81.51930276653307,
       "measurements": 998,
-      "median_latency_ms": 76.68798749999999,
-      "p95_latency_ms": 123.55024739999999,
+      "median_latency_ms": 78.6984035,
+      "p95_latency_ms": 107.9237638,
       "report": {
-        "accuracy": 0.9939879759519038,
+        "accuracy": 0.9539078156312625,
         "beagle": {
-          "f1-score": 0.99,
-          "precision": 0.99,
-          "recall": 0.99,
+          "f1-score": 0.9117647058823529,
+          "precision": 0.8942307692307693,
+          "recall": 0.93,
           "support": 100.0
         },
         "boxer": {
-          "f1-score": 0.9849246231155779,
-          "precision": 0.98,
-          "recall": 0.98989898989899,
+          "f1-score": 0.93,
+          "precision": 0.9207920792079208,
+          "recall": 0.9393939393939394,
           "support": 99.0
         },
         "chihuahua": {
-          "f1-score": 1.0,
-          "precision": 1.0,
-          "recall": 1.0,
+          "f1-score": 0.9387755102040817,
+          "precision": 0.9583333333333334,
+          "recall": 0.92,
           "support": 100.0
         },
         "macro avg": {
-          "f1-score": 0.9939798994974876,
-          "precision": 0.994,
-          "recall": 0.993979797979798,
+          "f1-score": 0.954087841197085,
+          "precision": 0.9546712363544045,
+          "recall": 0.9538787878787879,
           "support": 499.0
         },
         "samoyed": {
-          "f1-score": 0.9949748743718593,
-          "precision": 1.0,
-          "recall": 0.99,
-          "support": 100.0
-        },
-        "weighted avg": {
-          "f1-score": 0.9939980463439441,
-          "precision": 0.9940280561122244,
-          "recall": 0.9939879759519038,
-          "support": 499.0
-        },
-        "yorkshire_terrier": {
           "f1-score": 1.0,
           "precision": 1.0,
           "recall": 1.0,
+          "support": 100.0
+        },
+        "weighted avg": {
+          "f1-score": 0.9541361134239328,
+          "precision": 0.9547391304569027,
+          "recall": 0.9539078156312625,
+          "support": 499.0
+        },
+        "yorkshire_terrier": {
+          "f1-score": 0.98989898989899,
+          "precision": 1.0,
+          "recall": 0.98,
           "support": 100.0
         }
       },
       "resolution": 112,
       "samples": 499,
       "shared_dinov2_storage_bytes": 88250943,
-      "speedup": 2.6084180693841743,
-      "std_latency_ms": 53.7545766278852,
-      "svm_storage_bytes": 1065028,
+      "speedup": 2.72748777925538,
+      "std_latency_ms": 22.0838194367176,
+      "svm_storage_bytes": 1203188,
       "tokens": 65,
-      "total_storage_bytes": 89315971
+      "total_storage_bytes": 89454131
     },
     {
-      "accuracy": 0.9739478957915831,
+      "accuracy": 0.9759519038076152,
       "classes": [
         "beagle",
         "boxer",
@@ -283,31 +283,31 @@
       "configuration": "roi_reduced_112_s0p8",
       "confusion_matrix": [
         [
-          96,
-          2,
+          97,
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          93,
           1,
-          1,
+          0,
           0
         ],
         [
           3,
-          96,
           0,
-          0,
-          0
-        ],
-        [
-          3,
-          2,
-          95,
+          97,
           0,
           0
         ],
         [
-          1,
           0,
           0,
-          99,
+          0,
+          100,
           0
         ],
         [
@@ -319,47 +319,47 @@
         ]
       ],
       "dinov2_tensor_bytes": 88226304,
-      "macro_f1": 0.9740049367173658,
-      "mean_latency_ms": 72.181841004008,
+      "macro_f1": 0.9759971194117536,
+      "mean_latency_ms": 87.36573019639279,
       "measurements": 998,
-      "median_latency_ms": 60.4523225,
-      "p95_latency_ms": 112.40431265,
+      "median_latency_ms": 82.13056399999999,
+      "p95_latency_ms": 121.9925238,
       "report": {
-        "accuracy": 0.9739478957915831,
+        "accuracy": 0.9759519038076152,
         "beagle": {
-          "f1-score": 0.9458128078817734,
-          "precision": 0.9320388349514563,
-          "recall": 0.96,
+          "f1-score": 0.9463414634146341,
+          "precision": 0.9238095238095239,
+          "recall": 0.97,
           "support": 100.0
         },
         "boxer": {
-          "f1-score": 0.964824120603015,
-          "precision": 0.96,
-          "recall": 0.9696969696969697,
+          "f1-score": 0.9538461538461539,
+          "precision": 0.96875,
+          "recall": 0.9393939393939394,
           "support": 99.0
         },
         "chihuahua": {
-          "f1-score": 0.9693877551020408,
-          "precision": 0.9895833333333334,
-          "recall": 0.95,
+          "f1-score": 0.9797979797979798,
+          "precision": 0.9897959183673469,
+          "recall": 0.97,
           "support": 100.0
         },
         "macro avg": {
-          "f1-score": 0.9740049367173658,
-          "precision": 0.974324433656958,
-          "recall": 0.973939393939394,
+          "f1-score": 0.9759971194117536,
+          "precision": 0.9764710884353741,
+          "recall": 0.9758787878787878,
           "support": 499.0
         },
         "samoyed": {
-          "f1-score": 0.99,
-          "precision": 0.99,
-          "recall": 0.99,
+          "f1-score": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
           "support": 100.0
         },
         "weighted avg": {
-          "f1-score": 0.9740233351464527,
-          "precision": 0.9743531399368316,
-          "recall": 0.9739478957915831,
+          "f1-score": 0.9760415101243098,
+          "precision": 0.9764865615584912,
+          "recall": 0.9759519038076152,
           "support": 499.0
         },
         "yorkshire_terrier": {
@@ -372,11 +372,11 @@
       "resolution": 112,
       "samples": 499,
       "shared_dinov2_storage_bytes": 88250943,
-      "speedup": 3.00650317114668,
-      "std_latency_ms": 26.00211982010185,
-      "svm_storage_bytes": 1058772,
+      "speedup": 2.544967020470442,
+      "std_latency_ms": 26.506417951817483,
+      "svm_storage_bytes": 1024212,
       "tokens": 65,
-      "total_storage_bytes": 89309715
+      "total_storage_bytes": 89275155
     }
   ],
   "seed": 42,
@@ -2379,7 +2379,7 @@
       "sha256": "fc533437272942b4cf47ddb3d59e75886668859770aee42a6fb1f6a41f5eb0b7"
     }
   ],
-  "timestamp_utc": "2026-11-15T01:10:59.108059+00:00",
+  "timestamp_utc": "2026-11-15T01:45:28.570658+00:00",
   "timing_excludes": [
     "disk image decoding",
     "weights download",
@@ -2391,7 +2391,8 @@
   "timing_includes": [
     "BGR to RGB/PIL conversion",
     "ROI if enabled",
-    "image processor",
+    "letterbox resize and padding",
+    "image normalization",
     "device transfers",
     "DINOv2 CLS extraction",
     "scaler and SVM prediction"
