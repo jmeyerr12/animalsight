@@ -1,0 +1,4 @@
+configuration,resolution,tokens,samples,accuracy,macro_f1
+baseline_224,224,257,100,0.99,0.9899937460913071
+reduced_112,112,65,100,0.95,0.9502188868042527
+roi_reduced_112_s0p8,112,65,100,0.96,0.9602197802197802

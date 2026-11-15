@@ -1,0 +1,24 @@
+Verification performed on 2026-11-14:
+- Python 3.10.12, local .venv.
+- python -m unittest discover -s tests -v: 14 tests passed.
+- python -m pip check: No broken requirements found.
+- python -m compileall -q src app.py tests: passed.
+- Experiment and benchmark CLI --help: passed.
+- Independent code review: no material bugs; six pipeline/ROI tests also passed independently.
+- Streamlit AppTest with a real trainval image: upload, four previews, all three saved DINOv2/SVM configurations passed.
+- Streamlit resource loaded DINOv2 once for those three predictions.
+- Removed obsolete source scripts after reference inspection; preserved data and historical model/report artifacts.
+
+The unit tests use a small randomly initialized DINOv2 and generated images.
+Their classification scores are test fixtures and are not research results.
+Real research results are saved separately in evaluation.json and benchmark.json.
+
+Some original JPEGs emit OpenCV decoder warnings but remain decodable.
+No image was filtered out to suppress these warnings.
+The initial combined extraction was terminated by SIGTERM (exit 143) after
+training completed; official test evaluation was resumed as a separate command.
+No hyperparameters changed in response to test performance.
+
+Full real evaluation: 500 trainval / 499 test images; Baseline 498 correct, Reduced 493, ROI Reduced 484.
+Benchmark: two full passes, 998 measurements per configuration, 2994 total; all timed predictions exactly match evaluation predictions.
+Storage sums, positive latencies, sample counts and matching metrics verified from the exported CSV/JSON.

@@ -1,3 +1,23 @@
-data/*
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.superpowers/
+.env
+
+data/
 *.zip
-.venv/*
+*.tar.gz
+models/
+*.joblib
+*.npz
+*.safetensors
+*.pt
+*.pth
+.cache/
+
+docs/
+
+# Keep small reproducible metrics and figures under results/.

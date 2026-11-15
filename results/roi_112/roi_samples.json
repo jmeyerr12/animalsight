@@ -1,0 +1,21 @@
+{
+  "paths": [
+    "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_129.jpg",
+    "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_126.jpg",
+    "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_104.jpg",
+    "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_136.jpg",
+    "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_117.jpg",
+    "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_117.jpg",
+    "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_142.jpg",
+    "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_111.jpg",
+    "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_164.jpg",
+    "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_150.jpg",
+    "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_133.jpg",
+    "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_179.jpg",
+    "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_147.jpg",
+    "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_101.jpg",
+    "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_13.jpg"
+  ],
+  "seed": 42,
+  "source": "trainval_validation"
+}

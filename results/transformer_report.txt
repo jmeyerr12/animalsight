@@ -1,15 +1,14 @@
-Accuracy: 1.0000
-F1 macro: 1.0000
+Accuracy: 0.9980
+F1 macro: 0.9980
 
-                 precision    recall  f1-score   support
+              precision    recall  f1-score   support
 
-        crazing       1.00      1.00      1.00        60
-      inclusion       1.00      1.00      1.00        60
-        patches       1.00      1.00      1.00        60
- pitted_surface       1.00      1.00      1.00        60
-rolled-in_scale       1.00      1.00      1.00        60
-      scratches       1.00      1.00      1.00        60
+      beagle       1.00      1.00      1.00       100
+       boxer       0.99      1.00      0.99        99
+   chihuahua       1.00      1.00      1.00       100
+         pug       1.00      0.99      0.99       100
+     samoyed       1.00      1.00      1.00       100
 
-       accuracy                           1.00       360
-      macro avg       1.00      1.00      1.00       360
-   weighted avg       1.00      1.00      1.00       360
+    accuracy                           1.00       499
+   macro avg       1.00      1.00      1.00       499
+weighted avg       1.00      1.00      1.00       499

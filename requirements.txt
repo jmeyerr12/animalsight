@@ -1,0 +1,11 @@
+# Tested on Python 3.10.12; install a CPU or CUDA PyTorch wheel for your machine.
+torch==2.14.1
+transformers==5.20.2
+numpy==2.2.6
+opencv-python==5.0.0.93
+scikit-learn==1.7.2
+joblib==1.6.0
+Pillow==12.3.0
+matplotlib==3.10.9
+safetensors==0.8.0
+streamlit==1.65.0

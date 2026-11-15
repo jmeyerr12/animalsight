@@ -1,0 +1,14 @@
+Accuracy: 0.9960
+F1 macro: 0.9960
+
+              precision    recall  f1-score   support
+
+      beagle       1.00      1.00      1.00       100
+       boxer       0.98      1.00      0.99        99
+   chihuahua       1.00      1.00      1.00       100
+         pug       1.00      0.98      0.99       100
+     samoyed       1.00      1.00      1.00       100
+
+    accuracy                           1.00       499
+   macro avg       1.00      1.00      1.00       499
+weighted avg       1.00      1.00      1.00       499
