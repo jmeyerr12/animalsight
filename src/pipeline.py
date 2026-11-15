@@ -6,14 +6,13 @@ import json
 import cv2
 import numpy as np
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, f1_score
-from sklearn.model_selection import train_test_split
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 
 ROOT = Path(__file__).resolve().parent.parent
 DATASET = ROOT / "data" / "oxford-pet"
-BREEDS = {"beagle", "boxer", "chihuahua", "pug", "samoyed"}
+BREEDS = {"beagle", "boxer", "chihuahua", "samoyed", "yorkshire_terrier"}
 SVM_PARAMETERS = {"kernel": "rbf", "C": 10, "gamma": "scale"}
 
 
@@ -38,11 +37,6 @@ def load_dataset(split, dataset=DATASET):
     if not paths or len(set(paths)) != len(paths):
         raise ValueError(f"Empty or duplicate dataset entries: {annotation_file}")
     return paths, np.array(labels)
-
-
-def validation_indices(labels, validation_size=0.2, seed=42):
-    return train_test_split(np.arange(len(labels)), test_size=validation_size,
-                            random_state=seed, stratify=labels)
 
 
 def read_image(path):
@@ -81,7 +75,3 @@ def prediction_metrics(labels, predictions):
             "confusion_matrix": confusion_matrix(labels, predictions, labels=classes).tolist(),
             "report": classification_report(labels, predictions, labels=classes,
                                              output_dict=True, zero_division=0)}
-
-
-def evaluate_classifier(classifier, features, labels):
-    return prediction_metrics(labels, classifier.predict(features))

@@ -1,0 +1,15 @@
+Resolution sweep verification — 2026-11-14
+
+- Full unittest suite: 18 tests passed.
+- Real fixed grid: 112, 84, 56, 42, 28; one unchanged baseline at 224.
+- Frozen DINOv2 loaded once; six original trainval/test cache entries reused.
+- 11 classifiers, same 500 trainval examples; same original stratified 400/100 validation indices.
+- 5,489 official-test prediction records and 1,100 validation prediction records.
+- All original 112 model/result artifacts have unchanged SHA-256 hashes.
+- All paired counts sum to sample count; paired net-correct differences match accuracy deltas.
+- Smaller tensor and token counts exercised by real DINOv2 tests and checked on every real inference.
+- Independent read-only code review: no material issues.
+- No new inference latency measurement, no ROI/SVM tuning, no app changes, no commit or push.
+
+Run command:
+python -m src.resolution_sweep --offline --device cpu

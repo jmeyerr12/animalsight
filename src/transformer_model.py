@@ -12,18 +12,19 @@ from PIL import Image
 from transformers import AutoImageProcessor, AutoModel
 from transformers.utils.hub import cached_file
 
-from src.pipeline import ROOT, file_manifest, fingerprint, read_image
+from src.pipeline import BREEDS, ROOT, file_manifest, fingerprint, read_image
 from src.roi import ROI_VERSION, extract_roi, validate_image
 
 MODEL_NAME = "facebook/dinov2-small"
 MODEL_REVISION = "ed25f3a31f01632728cabb09d1542f84ab7b0056"
 SCHEMA_VERSION = 1
 PREPROCESSING = "rgb-pil-bicubic-shortest-edge-256/224-center-crop-v1"
+REDUCED_SIZES = (28, 42, 56, 84, 112, 168)
 
 
 def configurations(reduced_size=112, roi_scale=0.8):
-    if reduced_size not in (112, 168) or not 0 < roi_scale <= 1:
-        raise ValueError("Reduced size must be 112 or 168; ROI scale must be in (0, 1].")
+    if reduced_size not in REDUCED_SIZES or not 0 < roi_scale <= 1:
+        raise ValueError(f"Reduced size must be one of {REDUCED_SIZES}; ROI scale must be in (0, 1].")
     return [{"name": "baseline", "resolution": 224, "roi_scale": None},
             {"name": "reduced", "resolution": reduced_size, "roi_scale": None},
             {"name": "roi_reduced", "resolution": reduced_size, "roi_scale": roi_scale}]
@@ -140,12 +141,14 @@ def make_artifact(classifier, runtime, config, training):
 def load_artifact(path, runtime):
     artifact = joblib.load(path)
     if not isinstance(artifact, dict) or 'representation' not in artifact:
-        raise ValueError("Legacy classifier; retrain with python -m src.experiments train.")
+        raise ValueError("Legacy classifier; retrain with python -m src.experiments.")
     config = artifact['representation']['configuration']
     if artifact['representation'] != representation(runtime, config):
         raise ValueError("Classifier preprocessing/model version differs from this runtime. Retrain the classifier.")
     if artifact['classifier'].n_features_in_ != runtime['model'].config.hidden_size:
         raise ValueError("Classifier embedding dimension mismatch.")
+    if set(artifact['classifier'].classes_) != BREEDS:
+        raise ValueError("Classifier breeds changed; retrain with python -m src.experiments.")
     return artifact
 
 

@@ -1,0 +1,157 @@
+\documentclass[conference]{IEEEtran}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{cite}
+\usepackage{url}
+
+\title{AnimalSight: Avaliação de Regiões de Interesse\\
+na Classificação de Raças de Cães}
+
+\author{
+\IEEEauthorblockN{João Meyer Muhlmann}
+\IEEEauthorblockA{Universidade Federal do Paraná\\
+Trabalho Final de Visão Computacional\\
+Novembro de 2026}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Este trabalho investiga se a seleção clássica de uma região de interesse
+(ROI) permite reduzir a resolução de entrada do DINOv2 preservando a
+acurácia na classificação de cães. A entrada de 112\,$\times$\,112 pixels
+reduziu o tempo médio de inferência em aproximadamente 2,9 vezes, com
+perda de um ponto percentual de acurácia. Entretanto, a ROI por
+gradientes apresentou desempenho inferior ao redimensionamento
+convencional em todas as resoluções avaliadas no teste.
+\end{abstract}
+
+\begin{IEEEkeywords}
+visão computacional, região de interesse, DINOv2, SVM.
+\end{IEEEkeywords}
+
+\section{Introdução}
+Modelos como o DINOv2 extraem características visuais que podem ser
+utilizadas sem ajuste dos seus pesos~\cite{dinov2}. Entretanto, seu custo
+de inferência depende da resolução de entrada. O AnimalSight investiga
+se um recorte obtido por visão computacional clássica preserva
+informações relevantes do animal quando a imagem é reduzida.
+
+\section{Metodologia}
+Foram utilizadas cinco raças do Oxford-IIIT Pet~\cite{pets}: beagle,
+boxer, chihuahua, pug e samoyed. Mantiveram-se os conjuntos oficiais,
+com 500 imagens de treinamento e 499 de teste.
+
+O modelo \texttt{facebook/dinov2-small} permaneceu congelado. O token
+CLS da última camada fornece um vetor de 384 características,
+padronizado e classificado por um SVM com kernel RBF, $C=10$ e
+\texttt{gamma=scale}. Cada representação utiliza um SVM próprio,
+treinado nas mesmas 500 imagens, com os parâmetros fixos.
+
+Compararam-se três configurações: \textit{Baseline}, com entrada de
+224\,$\times$\,224 pixels; \textit{Reduced}, com entrada de
+112\,$\times$\,112; e \textit{ROI Reduced}, que realiza um recorte antes
+do processamento em 112\,$\times$\,112. A ROI é uma janela quadrada com
+lado igual a 80\% da menor dimensão da imagem, posicionada na região
+de maior soma de magnitudes dos gradientes Sobel, suavizados por
+filtros gaussianos. Sua seleção não utiliza rótulos ou detectores.
+
+Todas as configurações aplicam redimensionamento, recorte central e
+normalização compatíveis com o processador do DINOv2. A resolução dos
+tensores efetivamente diminui: de 257 tokens em 224 pixels para 65 em
+112, incluindo o CLS. Também foram comparadas entradas de 84, 56,
+42 e 28 pixels, mantendo o mesmo algoritmo de ROI.
+
+O benchmark foi executado em CPU Intel Core i7-1065G7, com quatro
+threads, lote unitário, duas passagens pelas 499 imagens e cinco
+inferências de aquecimento por configuração em cada passagem.
+O tempo inclui pré-processamento, ROI quando aplicável, DINOv2 e SVM;
+exclui leitura e decodificação dos arquivos, carregamento dos modelos
+e treinamento. A medição não utiliza embeddings em cache.
+
+\section{Resultados e Discussão}
+A Tabela~\ref{tab:principal} apresenta a comparação principal.
+O Reduced alcançou ganho de velocidade de $2{,}90\times$, com acurácia
+de 98,80\%, frente a 99,80\% do baseline. A ROI apresentou tempo
+próximo, mas reduziu a acurácia para 96,99\%. Os pesos do DINOv2 são
+compartilhados e seu tamanho não diminui com a resolução.
+
+\begin{table}[t]
+\caption{Comparação principal nas 499 imagens de teste.}
+\label{tab:principal}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrr}
+\toprule
+Configuração & Acc. (\%) & F1 macro & Tempo (ms) & Ganho \\
+\midrule
+Baseline    & 99,80 & 0,9980 & 202,41 & $1{,}00\times$ \\
+Reduced     & 98,80 & 0,9880 & 69,87  & $2{,}90\times$ \\
+ROI Reduced & 96,99 & 0,9700 & 67,08  & $3{,}02\times$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\caption{Acurácia em resoluções menores no conjunto de teste.}
+\label{tab:resolucoes}
+\centering
+\small
+\begin{tabular}{crr}
+\toprule
+Entrada (pixels) & Reduced (\%) & ROI Reduced (\%) \\
+\midrule
+$112\times112$ & 98,80 & 96,99 \\
+$84\times84$   & 95,39 & 94,19 \\
+$56\times56$   & 75,15 & 73,55 \\
+$42\times42$   & 64,13 & 61,92 \\
+$28\times28$   & 57,11 & 54,31 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A ROI permaneceu inferior ao Reduced em todas as resoluções
+avaliadas (Tabela~\ref{tab:resolucoes}). Ela beneficia algumas imagens:
+em 28 pixels, corrigiu 79 erros do Reduced, mas introduziu outros 93.
+Uma possível explicação é que gradientes intensos também aparecem
+no fundo, enquanto o recorte pode excluir partes importantes do animal.
+
+O estudo é exploratório, limitado a cinco raças e à reutilização do
+mesmo conjunto de teste. Não foram medidas novas latências para as
+resoluções abaixo de 112 pixels, nem demonstrada significância
+estatística das diferenças observadas.
+
+\section{Conclusão e Trabalhos Futuros}
+A redução para 112\,$\times$\,112 apresentou uma relação favorável
+entre acurácia e tempo de inferência neste experimento. Contudo,
+a seleção de ROI por gradientes não preservou melhor a informação
+discriminativa que o redimensionamento convencional.
+
+Como trabalho futuro, propõe-se melhorar a delimitação da região do
+animal, combinando gradientes com segmentação de primeiro plano e
+operações morfológicas. Também podem ser avaliados recortes de
+tamanho e formato adaptativos, evitando a exclusão da cabeça ou do
+corpo. Essas alternativas devem ser avaliadas considerando tanto a
+acurácia quanto o custo adicional do pré-processamento.
+
+\begin{thebibliography}{2}
+
+\bibitem{dinov2}
+M. Oquab \textit{et al.}, ``DINOv2: Learning Robust Visual Features
+without Supervision,'' arXiv:2304.07193, 2023.
+\url{https://arxiv.org/abs/2304.07193}
+
+\bibitem{pets}
+O. M. Parkhi, A. Vedaldi, A. Zisserman e C. V. Jawahar,
+``Cats and Dogs,'' in \textit{Proc. IEEE Conference on Computer Vision
+and Pattern Recognition (CVPR)}, 2012.
+\url{https://www.robots.ox.ac.uk/~vgg/data/pets/}
+
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,4189 @@
+{
+  "configurations": [
+    {
+      "name": "baseline",
+      "resolution": 224,
+      "roi_scale": null
+    },
+    {
+      "name": "reduced",
+      "resolution": 112,
+      "roi_scale": null
+    },
+    {
+      "name": "roi_reduced",
+      "resolution": 112,
+      "roi_scale": 0.8
+    },
+    {
+      "name": "reduced",
+      "resolution": 84,
+      "roi_scale": null
+    },
+    {
+      "name": "roi_reduced",
+      "resolution": 84,
+      "roi_scale": 0.8
+    },
+    {
+      "name": "reduced",
+      "resolution": 56,
+      "roi_scale": null
+    },
+    {
+      "name": "roi_reduced",
+      "resolution": 56,
+      "roi_scale": 0.8
+    },
+    {
+      "name": "reduced",
+      "resolution": 42,
+      "roi_scale": null
+    },
+    {
+      "name": "roi_reduced",
+      "resolution": 42,
+      "roi_scale": 0.8
+    },
+    {
+      "name": "reduced",
+      "resolution": 28,
+      "roi_scale": null
+    },
+    {
+      "name": "roi_reduced",
+      "resolution": 28,
+      "roi_scale": 0.8
+    }
+  ],
+  "runtime": {
+    "attention": "sdpa",
+    "dtype": "torch.float32",
+    "hidden_size": 384,
+    "model": "facebook/dinov2-small",
+    "numpy": "2.2.6",
+    "opencv": "5.0.0",
+    "patch_size": 14,
+    "pillow": "12.3.0",
+    "preprocessing": "rgb-pil-bicubic-shortest-edge-256/224-center-crop-v1",
+    "processor": {
+      "crop_size": {
+        "height": 224,
+        "width": 224
+      },
+      "do_center_crop": true,
+      "do_convert_rgb": true,
+      "do_normalize": true,
+      "do_rescale": true,
+      "do_resize": true,
+      "image_mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "image_processor_type": "BitImageProcessor",
+      "image_std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "resample": 3,
+      "rescale_factor": 0.00392156862745098,
+      "size": {
+        "shortest_edge": 256
+      }
+    },
+    "processor_class": "BitImageProcessorPil",
+    "revision": "ed25f3a31f01632728cabb09d1542f84ab7b0056",
+    "roi_algorithm": "sobel-gaussian-window-v1",
+    "torch": "2.14.1+cu130",
+    "transformers": "5.20.2"
+  },
+  "training": {
+    "files": [
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_100.jpg",
+        "sha256": "adb80c22aa0468a31e8ee59901c75e9a5840ee02f92149c1405f0e0d4d6f6b68"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_101.jpg",
+        "sha256": "ba16f93703b364e0c4a510f5d94ce99c2b5b0fa906b6a2aeb3bd9dc82b81f943"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_102.jpg",
+        "sha256": "0bfdb1b63f00e1440f2b664e7edc16ea7a8cb20a99f952ac1c815863d4e0d9dd"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_103.jpg",
+        "sha256": "81d671c4bd0d64ae974d9d55f9620ff1a1d7e5125d901d55747bd9f86fa763d9"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_104.jpg",
+        "sha256": "7db5c72e707a4f16f0d4f273b3c719d662269aa39873345e9d9897738eca7151"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_105.jpg",
+        "sha256": "d239afb11191fb9f958c053f042d9fa034e912a61bba8e719fa1110d09a54f2c"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_107.jpg",
+        "sha256": "5ce6202afb65386e869e35cd47aa0cb3f3f4aba1c3e2777e03dd6466597dcae1"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_108.jpg",
+        "sha256": "e3aa7c322a812e7299d542de21819a49f1c38897a02bf98439b58da46b6e8350"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_109.jpg",
+        "sha256": "9c67ff9e07a4b2aff4d9eef1941038640e4d697847539158f826b41fbccf8abb"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_10.jpg",
+        "sha256": "e62a947726d309e2d042c441ec3265644f0f124bc9a4cd84363d592a8a49a7cc"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_110.jpg",
+        "sha256": "36de49d24f6540da9fd304a3dca5634d880fdeca1c4fedc53acf6cae8b3027fc"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_111.jpg",
+        "sha256": "293f6082d5633f7ec423f796ac047d5a408e974a07a159564b6e504ad1110aa0"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_112.jpg",
+        "sha256": "fa9289fe745868407139f0aacc9b8f1da2253559d36a2781275acf1388ff6806"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_113.jpg",
+        "sha256": "3ad038ff3abb23b58eb9c4aab2f3decbb2a4127eb9c222a898122f944c8fa63b"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_114.jpg",
+        "sha256": "41cddfd68c188f75155b81a80daabfaba68e00224efb751945b7eaf3e6243e47"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_115.jpg",
+        "sha256": "d39a32de899a26d86837d53e190b914a99e733ffe96787033b5e48ed5ddc972b"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_116.jpg",
+        "sha256": "aa04a2d76a58c340cfd1273d39d0ee21be4209942a4024786e84774a3983b9c2"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_117.jpg",
+        "sha256": "faf0efd406fc559f741ba7417468a3c8c0fb7a49b53e22e351e4ec04105964f3"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_118.jpg",
+        "sha256": "00f97e8b2777118b814a1b6f8eab6819ac47b7c8078e2ba160da8078f06f16a3"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_119.jpg",
+        "sha256": "8febaa7fb4acc63ecb2a029b528bcae89179115ac3447949f323e8110cf0b707"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_120.jpg",
+        "sha256": "51f234ac916a9ded9c8c41a0aab3049ff678c7bb0e3054181a3407f90016b3bd"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_121.jpg",
+        "sha256": "b8c0f4bbd3fc558acb3b5683753fe6ee0594232009bfa28af9856d238e3adc9a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_122.jpg",
+        "sha256": "ea4c4dcc666caa676602922bcfdd60fc6e489b871bcc8394c031213d526fde08"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_123.jpg",
+        "sha256": "0a8cfb17f4f7d780ea7415a7fd64c52199efb446910d17b9e37dc251da11b582"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_124.jpg",
+        "sha256": "ca763ea8fdeae7d19a51c8cc9795e6ecf887ea3ca2f6a6c0b8897caf249910d9"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_125.jpg",
+        "sha256": "ef68567e4d68bd21ae2dfdae99a1f58d6b715bc187f82697027f11b22c586bdb"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_126.jpg",
+        "sha256": "df44bce9208af62f5780e9a99201442fe6e7ec49439ab00bc2e1f199c398624a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_127.jpg",
+        "sha256": "d8c77285daab0d2008d4d27f0503c65b016d6b08e88ce86621f962aadcf0a00a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_128.jpg",
+        "sha256": "bb53c68492e99350ebfcb4b4d750956429ffa8d76cf5713743fdcaa5a95361e3"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_129.jpg",
+        "sha256": "6f9f1b13bef6f7e81d8f36b7ed164e2b9a7cfbebb1eb2a556d27f8d85f7e3e5d"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_12.jpg",
+        "sha256": "d0b0cb584d71adad77d6cbee32dbb8d343dbc934aef7c98f763a23ad54dcf089"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_130.jpg",
+        "sha256": "7130c82a0a5d1d55a64e2fc069b00eaabc792fdc42ed74b884914911ef34db67"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_131.jpg",
+        "sha256": "fa476beb9297dad3fe118fa6c1051148f1f153ee98cb140dfad5fca1897c4dce"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_133.jpg",
+        "sha256": "a0b903c9dd9f8c82f6a9f008c2605306a217a92193521148269cfd38d38bd7a6"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_134.jpg",
+        "sha256": "1122f4f488b460284e9c3b9871a2d8a9a5c9306f3ee7067ac418ff04e7d9f7e5"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_135.jpg",
+        "sha256": "3bd998185509892c7d7d8cca50331d319cae08fb52cfc85e88291ed5eebf75ff"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_136.jpg",
+        "sha256": "1f6c66d12addd97e77f09ea7ad49d8359e1ae92c80c467b072a9601da955b5e5"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_137.jpg",
+        "sha256": "e0b444eb1491defcdb00f3eb5d42f5ee1ab5c4ab15e0d921b203c2fa51c09b2a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_138.jpg",
+        "sha256": "8242c7ebb7156af07cf20d35d02805594a3370cd1bd364c3baaa4fa8384a4429"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_139.jpg",
+        "sha256": "7f66ca4b5e8924f90a7d67371a613442240b08daac0df0a2a320bac5dc574c63"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_13.jpg",
+        "sha256": "8bff423a43eece55a0bf4f6b3c5debc2c275ff5258f8690d92f3a6f1f1dfff4e"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_140.jpg",
+        "sha256": "beed987c57ebfd06fb94ea94110e73d35797a77e348118205e3b126edeb19c1a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_141.jpg",
+        "sha256": "e9619ee40827f86f1e94a93f4c811d331af8a766ed6ffb5017ad7d6c1efd1c1a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_142.jpg",
+        "sha256": "565ef8c25889b209fe2455963339934809f3bc27b7074f30e7972344241c9f2a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_143.jpg",
+        "sha256": "ba6e23935e218e06e12c94319ddc985780c71c0be19303275e988377072cb2f8"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_144.jpg",
+        "sha256": "e8d960935824bc2fc268be14433a2f28a9aca45e0b8d2757941152e8b7b9178b"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_145.jpg",
+        "sha256": "1a18dc157a7e2e848576549725ce34a9a5a49eb900f9630982514cb4ce724b05"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_146.jpg",
+        "sha256": "7a4ab3058b4e48c466c33e6a6f06d40c83abf267d21c4292b09a70138806f2d0"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_147.jpg",
+        "sha256": "f545fcba18e2fd62dd3b7b6076017afb10b6645c26844db8e8756a2e65105c3f"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_148.jpg",
+        "sha256": "6b21b01ce5d4a0397e77b2f11157e6ea2a952dafc85823676b1013198323ed12"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_100.jpg",
+        "sha256": "fb5e92447ca29e7e94ae08644ff9960e13546bc092c2f6d2bd8a7555b67431ed"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_101.jpg",
+        "sha256": "ba22a037dfe1f0de98289d02f976e369de98f940ff4f4f1665524a72d56e233a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_102.jpg",
+        "sha256": "823e071f101791dc9f93bf5c4c6dd4a86569bbcc0671416c9e3c2db5ec9f608b"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_103.jpg",
+        "sha256": "d8a8b21ba6a47f58770d6bec3ec70833d48524d3bdeda178bf68f7e9869baa21"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_104.jpg",
+        "sha256": "8de5ffee407dd6f32387cdf60f08ec9970505d4b4ad114d1a6eae2d033005a3c"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_105.jpg",
+        "sha256": "78a5b8bc52da499486f1242bc86ce8efaa6a465a9881f3d383ba867a8f876e72"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_106.jpg",
+        "sha256": "a98df88ac9aeca8195710311654000dc9211a1423bd9aba1990762a27fe762bb"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_107.jpg",
+        "sha256": "38672165c76cdc85a2f1023a5cbc298e4c17f41f0f5884187c28950ea4acfbf8"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_108.jpg",
+        "sha256": "426e6a240ff7b70cd0df3689af6d082d73c2dd7cbad849709d36f36882a4bcec"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_109.jpg",
+        "sha256": "e32891146afccf12dc1eacfda4d73460204fa470ff842f378d1953608cef6b6a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_10.jpg",
+        "sha256": "dd6429343ec550d392ab7b68964ea89c9b0aa1e526313a9626dc92a93cedca0c"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_110.jpg",
+        "sha256": "c322ca91a9e0e07b64c86ad9f822d1103341269ff372ecc438f8b814ac094793"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_111.jpg",
+        "sha256": "f6606d4eba4770164c146b3595d57a9ecce0457233c47244f9e2978c9553dfc0"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_112.jpg",
+        "sha256": "3864b072c8feff1cd6ebcd44d87dd489b61636e9ef102588bea4eedcac3602f6"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_113.jpg",
+        "sha256": "bf0fea4c34d75eaf27ee6664ce6880e42926ec1280e9e1095519830826354958"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_114.jpg",
+        "sha256": "699936fea3ad7ab41a3793e6a66f4620725990cdcfd356a790a84368462380f4"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_115.jpg",
+        "sha256": "c472a9736dbe4d5ff9a50b02836a9baa17a2405c88f6e53c6bcecc9d398d085b"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_116.jpg",
+        "sha256": "72b418494a073d9e9043f93e63cb3dfc5bdfcc8024f62bb2722c6aae12ea9ba1"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_117.jpg",
+        "sha256": "112b6977a7ed074f5fc551476affe8a277f3c23180ec26404b7cc197cd78d192"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_118.jpg",
+        "sha256": "2702c8cc8d392f9c8e852a90b608bdc4d13a0b923413d7e182fbc82a19fefccc"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_119.jpg",
+        "sha256": "5e9a91bbedf191717a58ea2a817ab3a6c9ff245b7d6fa5dd96144eced0ca5052"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_11.jpg",
+        "sha256": "09d1f29efe91b2173f364b08136e5c71d608e05d810f66e09c0a20de42ca3bac"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_120.jpg",
+        "sha256": "c9b1af02508a5cc6982c4c4a58d1006492031e96a191181abbe56c20a766d917"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_121.jpg",
+        "sha256": "40a0d2fd3632cf9f9e5363a93c7fbd98c1f34245ed4f186c5408393bdc4ad5a3"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_122.jpg",
+        "sha256": "388d2f5505310483cab17d2ad63c36f05c48e63b9582993fdcbc700c8e340b3d"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_123.jpg",
+        "sha256": "06b1069482384c817c1cdf0fb0d310f603d646e677fd609672b5a7e0d072bdeb"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_124.jpg",
+        "sha256": "fa815a4a61d682f8cbae2e47e3a3ac51546bd3522ef960408fc5b9a169c804d8"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_125.jpg",
+        "sha256": "0b838c43d0410bf17819cb6fe7dea2b5041c096e544991cd91218806aa89fa3f"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_126.jpg",
+        "sha256": "0ded586f8af26b4ccece7c3a3b60656b58b18a6dffa5f84cd18220b0657fa5ec"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_127.jpg",
+        "sha256": "462db8047dbe6d78a98c8b0e1c1da63153f8c03732022a188f56245a0f12a274"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_128.jpg",
+        "sha256": "980e72abc8d2b3db55c7c264459b4a5a2a7f830d9c750d82d6d96f1096f6bfa1"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_129.jpg",
+        "sha256": "a1aad4f6534777b11bbb0a953b3e2aa68338fab9032a7bc74c5a4683b4fafad9"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_12.jpg",
+        "sha256": "acd0ad7d0d54b7da00a8989e3a4fe2ddf72ecb7a8a7f7cf45a117dbf988d5881"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_130.jpg",
+        "sha256": "3612ec099eb3a4cf8c5249f29240a0458d1facce3c1b6bf7fbaab39595aee75a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_131.jpg",
+        "sha256": "899cc249cd762aa24bb869eda5c6e8f2516f9b0c0758671d5172b144d0db454b"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_132.jpg",
+        "sha256": "c02fd5a64e7fd49c9d7d08fbd2f8597e95babedbc29891e5a778d1b3c65a05de"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_133.jpg",
+        "sha256": "23aa7a26081a18183772e6e06473b912af767711f275fbd296a322bb2341de6f"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_134.jpg",
+        "sha256": "de2ee10ca66fe761c159c0d99c7263c2c719c475b8a7d03c581170a0320906d8"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_135.jpg",
+        "sha256": "67249ccdfccd6ee00e65be4b268590737a7bc3bb4e9804451100703a6806b456"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_136.jpg",
+        "sha256": "55d6f7e8c82d5efd1fe5621bca6fbdb2a60264207bd9d8fd37a3c2e27b8ab8e7"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_137.jpg",
+        "sha256": "82129e3f336ccaf20438d2903e1f0c304be57bb57362ad98156a68d4d2259a12"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_138.jpg",
+        "sha256": "c2ea7f1e3aa3463aa81d500dc325b44742f4c1b4a5f581e266472e3a7b78d487"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_139.jpg",
+        "sha256": "d2357681ac78e7ab58bba010d3585f79f818ed2b994e58e4512b261819208069"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_13.jpg",
+        "sha256": "65ce8f5f08a91305af69353084d0c0b0ac86191455566db691fae9052e9a7dbd"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_140.jpg",
+        "sha256": "3c3ba57687033df40b2efc273fb645f68c7a3b7b9dfd1e9942c7718730c29948"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_141.jpg",
+        "sha256": "bcc0f5417d14402c7d3b71b2b55c6800f33e1694769a36687780cc3e3179b9de"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_142.jpg",
+        "sha256": "4f085d1f8ffc6a21204cb389083edea9459550cc1cbf76d60e24b398b3667d5e"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_143.jpg",
+        "sha256": "5d2c4520fb04c618e9b620abd85a58fde6b96462e5278f7bd33213c14495e2a0"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_144.jpg",
+        "sha256": "57c0393016b72b06f2ef9bf9131f653731b34bb067267e2627618842b869f8f1"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_145.jpg",
+        "sha256": "f6a9804a83a584d8bbd6b7aeeb3a58b308bb27d3b16a0105c1d6b6ad24e9bc79"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_100.jpg",
+        "sha256": "27e95b0572e50dc42895c37795f5042efe9dbae9e9f541559a4b1cad9d112a54"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_101.jpg",
+        "sha256": "0b481bff9d7f57d736961f1a22967b2abc36f52d270a0b03c75e33b0aa5b2706"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_102.jpg",
+        "sha256": "38b40ceca08d8a194026ffe4205c01b6bfa811f1c83ccaa9b6b6ec421e051262"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_103.jpg",
+        "sha256": "cce57dd52fb32420d7e44c8aff73343663291dafabf8d987c1e0227a47070b70"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_104.jpg",
+        "sha256": "56554154cf6c970714c65a195f8fd83f71810308f5a91fecd4db4bd312d5cbbe"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_105.jpg",
+        "sha256": "5a3c88b4df56978bad91215277bf44d385eb54a8fcb6f424b6a71c4d9ca7b268"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_106.jpg",
+        "sha256": "ab97f19f32e13c95164a5583b58dd26cfe19b763099b11ce2444e6b4bfeead18"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_107.jpg",
+        "sha256": "547d7d1bc21c21763f1856ce953afbb36c5d7660d9443e66f2b1ec03129b3733"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_108.jpg",
+        "sha256": "cf2e7527b7ad6b1c446e37609165b5212853b714afeda0cec16d9964204c6d87"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_109.jpg",
+        "sha256": "3e579b1f2eda510cb54bd5e0a984cac9f009077b20105e84302ee75231233b59"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_10.jpg",
+        "sha256": "e7e94d41175db1ed175256994eecae1601daec682eb0d97181f96b8cd67084de"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_110.jpg",
+        "sha256": "d5694589767d60c4f50e84af040671b32823e3112822f4d9312942cf107e2583"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_111.jpg",
+        "sha256": "d9cc798ec9570454f648ee11744c775ccc6482b3f77705c3a4c070f984d7223a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_112.jpg",
+        "sha256": "9bf76389671c8e3d7a64861ecede02e5048c587f726eea34fd95af5103812b15"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_113.jpg",
+        "sha256": "e1fc96e86444e5d6d622be036464f41493af4d0b5c4b99bb444418c606e94d43"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_114.jpg",
+        "sha256": "09bd7485c80b93e74a1e3fbb058e9b218d3415cb7774d600471b1163b0705429"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_115.jpg",
+        "sha256": "df1fd53aafef8e294979e897aad1cd3afa737bbdbf4b855432053ed0158f6aa8"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_116.jpg",
+        "sha256": "e79b9d2cb6d5a05ba2f7f8bd7d614500f5ee747d4cd9ea10a51fa163226a6452"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_117.jpg",
+        "sha256": "2289815c756c17aa438de4554c318ef3ff0fd1f0eb24965afd19f4c2aba20754"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_118.jpg",
+        "sha256": "7cb90ac4949c9b3cf998916c4625db31d13e6d8335e7a4b7964acc18c01f294f"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_119.jpg",
+        "sha256": "c00d84df2d062750b2d7bda148fa0ab5e4c88646529ab3c65ed6ff47c60d0d83"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_11.jpg",
+        "sha256": "3e299baa00a1bf0f9675969044ba44540f5267fd24d3032126a4486323b6316f"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_120.jpg",
+        "sha256": "aa4b705925c73c614a00839af83d2a7a5fde16238bc7e0f1d1a40a386954bb06"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_121.jpg",
+        "sha256": "b9903ef6d5637413fcfb311769b8a47d29047a53a7e18ed25f03c3be517b97c6"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_122.jpg",
+        "sha256": "954a7e7a108de32be3fc123af74ae95c2981ef839f2a4381b4760ed77d8cc0ea"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_123.jpg",
+        "sha256": "afa13655b6b1f002bbb4174980e775b67619c7247cc04322a1ca7cc541846d83"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_124.jpg",
+        "sha256": "0362c3c2d19d71dcc793885dd8061bcb68b112f480cb14a5daf46b2c961f91c4"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_125.jpg",
+        "sha256": "35a369462147d3c5ba0a3d029d7a6d69d81ad050513a8f5558e88580d38f9013"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_126.jpg",
+        "sha256": "293a8863c416ee52e7ddfe513bc8c3a7045a00d621cb5ff10d4ef56d95c7e554"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_127.jpg",
+        "sha256": "090509d85a0e4fd527e7510cda7082f4f5e9017bf9f70fa659d3ecd724b023d0"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_128.jpg",
+        "sha256": "74505136464bb71cdd69a0a1fbf2da8d462a09d2139cc40a698e4511f7d03be3"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_129.jpg",
+        "sha256": "0b54b8fe0b249c758185ceaad97d1ffb7468f44706c1f028069be254a6f2fc4f"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_12.jpg",
+        "sha256": "7dd93b8d6cfc37292da6b8f479901dea7eaf3b7300e0ebf02665ce0cd9294d12"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_130.jpg",
+        "sha256": "ffc6275c005315430fee75d5b48ce9e25489c04f42d661398be07f6d4a04fef6"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_131.jpg",
+        "sha256": "cf95ab469a4b1f776cf0d82a8e7b13d1a1ff31114a900ac78a42b4cc7159842c"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_132.jpg",
+        "sha256": "e6a57ba39b1f0094be1e63c2f59345b23b8faa31803a1717c70a9583c7c31cfe"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_133.jpg",
+        "sha256": "74c687cfa237b2b44ef356c3635c9b64e797e4630f3c3163e333cb7328d4f448"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_134.jpg",
+        "sha256": "8b5e6adb23c6fefe94c519476afae89593359c706af120941ab102361b9a3644"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_135.jpg",
+        "sha256": "81d064ffb567e592769aeef9734ce3a827a4e8e3d542ad622b41c6d0c0d9022d"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_136.jpg",
+        "sha256": "05a81e6beb4eab4643c2bb78bc99e33d34a76af74978fe8b7f31a50435ea76ae"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_137.jpg",
+        "sha256": "6e18edcbb2e906b38e18afd782654c4ba89f680a48e0ced7fe6c3ac69858c6d0"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_138.jpg",
+        "sha256": "f01ed3c47ca1d5cd6d5fab5bf6b032355366bd53fac39622902c93ba2b14e203"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_139.jpg",
+        "sha256": "eab5fc20bec20e79db941a5cb161f55ae52281f59b2ad17598d8f999be35d134"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_13.jpg",
+        "sha256": "d68e557f21f65a468ec039058448b26154b616b4ac1dc49d0caa179063880656"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_140.jpg",
+        "sha256": "8a25af13d5e926a93f5bb0cbd2117f9bb90205fab22606468ac756978a7ec0de"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_141.jpg",
+        "sha256": "da6033731264e0beb0c1172e9ad8b90c50c39aa2b112f186b91bcf53fe7fe994"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_142.jpg",
+        "sha256": "d9d1579cce52558ab820c650109b2a606e1b472ea81108db9047699afb796bbc"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_143.jpg",
+        "sha256": "52e5e0ac9ff7989bac0be957077122731c2e3667714a8e918207b916e2db680e"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_144.jpg",
+        "sha256": "81bd3afd41b452bc22fc32a45469bcec86f7706a84348b686c6b1ee63c72b767"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_145.jpg",
+        "sha256": "35a98e5d7f2c597b0d91f2e6b57d6f014fae854508448dc0c953be5f267a7c3d"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_100.jpg",
+        "sha256": "6648ef7d6965ed53e2276bf171a677880efd56ad3b54facd626a6d0aaed077e7"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_101.jpg",
+        "sha256": "5a17500cca23f72e220aff2e5fa11d2ac7b2ccb17591e3cbf7e7ee8774a0666a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_102.jpg",
+        "sha256": "cd4c62850cb41bac1e0a68cb35c79361af3a6dcf5827a7662bd641d085d0890a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_103.jpg",
+        "sha256": "77ddbccce35d5d5c200d9c81d9890bb90972222c2e58526218bd2625fe4b3fc8"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_104.jpg",
+        "sha256": "8fd3e81b195b99a50ee6187a96df4214c68563aefb74e7e56ea36e9716433e6e"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_105.jpg",
+        "sha256": "fe4510065eb6b9579342ac0ef2723956ef39ec03dbb12b05352ed7d55b8fe840"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_106.jpg",
+        "sha256": "ba53f6801b644e2fd16f297156508c9938c7fc0f8f2b8267b0aba9a2699e6295"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_107.jpg",
+        "sha256": "c1391cb9c11ab1faf74e53f690cdfd34c04139968956b0c3160e022021927502"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_108.jpg",
+        "sha256": "eb65685c38cf3ba06c10b8bf2cd5a428b8342fb5fd0b518420c2d16ce4df14a9"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_109.jpg",
+        "sha256": "82e854aff089d5a16271901fdf885abb322d1e93b7d658b61749ef65385cfdb4"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_10.jpg",
+        "sha256": "613a98eb31494376cd54f726fc3da0499f9f648f85ff27e9a8948ecf6c3dc7a5"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_110.jpg",
+        "sha256": "c1838efbee72965a5923bce81d30ef26d4233edb48a84c8965ff36a07f1c3f3e"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_111.jpg",
+        "sha256": "d117e9e474bd291e266a54949bfd897265c823529ce2609b0840368f81a3aac8"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_112.jpg",
+        "sha256": "d6bbd60d490cb085f710b74a6104c245f6363b3e4fd732f0dddacb439c69906a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_114.jpg",
+        "sha256": "ffa829e12f17c4e9e03c4d65e87951b02edb89295414c5e10a9ff1edac0420c9"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_115.jpg",
+        "sha256": "6ef9c8ee0367c7fa4af0b6a49e9eed372362eee0bfe1645d71a6c5af5395f755"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_116.jpg",
+        "sha256": "7ad82e186d704fc5bb65ca8bf88a07e5c83bd19781405626609fca4d506dcd29"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_117.jpg",
+        "sha256": "68d72e3bd1abd33502e253e562e946507a3bd756f94fc09984cf448a3c731e37"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_118.jpg",
+        "sha256": "fff79bb93c501f2fc87315c015b2876ace1199f67af41728c6156d37745caa09"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_119.jpg",
+        "sha256": "d05535ce58e6809226aeb5eaa13dbba5362039187bd4e6f4fd35d9fc46034e86"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_11.jpg",
+        "sha256": "4c7ea18c7ee3722fabafb570b801b9163655423a45717d18320b4984f4219b8d"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_120.jpg",
+        "sha256": "68332daab0389c892e9fd3c2e0437366e91dc519af59f03ce42d0e012310e996"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_121.jpg",
+        "sha256": "ca8640481e019d3b4d7f68399ef10d2f10fc85b6fc711c38d2f11d9a0dbf9000"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_122.jpg",
+        "sha256": "4934202af268e03ab4a73e4a0fdd366ca4ce8cd7d5c3472b2df73144522f7f2b"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_123.jpg",
+        "sha256": "83f519d0058d2d43cbc1a6b66c85e1c3bb7315c41abb54c605dcac2733951677"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_124.jpg",
+        "sha256": "393cab1176d319fab1fe4c28307332df70923343744602fa71ac62fa2048fc3a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_125.jpg",
+        "sha256": "4a04865f219fe662bc9f8b6f88ee785aad26be14fa8e638e2847faa973c81870"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_126.jpg",
+        "sha256": "5de7d2c4172a68f95204dcbc0e212bf4c5350b8bfe097678d34a6cadc7498941"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_127.jpg",
+        "sha256": "d3f0736181950dd60c4bbb3ec4738d22f384c4ebe228b936e20ce46aa4aeb5dc"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_128.jpg",
+        "sha256": "fb9a9fa3cb2f74472a15a8d46ce15e5f70fb3f57e4ed7b84bb352fcc72b03bd7"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_129.jpg",
+        "sha256": "be45a746aa5c05d7d0ef206421c6af6142664bb86e525cc0bc293fa30c7b1cb8"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_12.jpg",
+        "sha256": "32324c44b46136baf157fd25a48166b0c42faf238d65118e8d2f8c28de22581d"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_130.jpg",
+        "sha256": "0b59506d12c55171750666b1f17f71a025dff5816aa2784f03b803d50463a32d"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_131.jpg",
+        "sha256": "a24d4d34585d856f2b674fd2d9075a5fff4e20116195cf18b42df1ecd0126002"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_132.jpg",
+        "sha256": "85e4e5cb0efc9dabbb6d6f481d8d3d2448e91b9bb7626d9989fe716f784b7c80"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_133.jpg",
+        "sha256": "775b42deea845a45edb48ca721366bda60d292bd030edf7820d73fc80007f4b0"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_134.jpg",
+        "sha256": "241242649d0aca56c243b9a8aa894c4c08fa2e988be965623127a5e052b008b5"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_135.jpg",
+        "sha256": "3e8526ed5c42e9eb56b8e21da85f0c95fb335b56ed8416ca7a5763423bb76c84"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_136.jpg",
+        "sha256": "40b0ec8c036d15c0b8268a2561a6f0cad0b0f663b1b245220f44a982a1d4d9e1"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_137.jpg",
+        "sha256": "16c7216b7ed9407a799914cae00e15fabfe08344ae6ca1f35ee6e28a012ef337"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_138.jpg",
+        "sha256": "96008ab12162b85d60363971de4080bfb52f8dd470407a97d069ec8c49448cde"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_139.jpg",
+        "sha256": "751740b8e9551b62f253f7edd18b3ce46dde3ac3b5725a122343d5f7696fdc70"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_13.jpg",
+        "sha256": "5ea284ba735f39f850a865c7b2548dc9bd12424e724656ffe7c122e490e41604"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_140.jpg",
+        "sha256": "d4b8015e7584be2da02e1e0cccc75067524b847614a924b3b7f2c7a9a7718553"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_141.jpg",
+        "sha256": "f0d9c9e3ee743451499db6930d38ed8c53fe85391bf3ddc4858952a7db672196"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_142.jpg",
+        "sha256": "841c14394b12d6459ba72ed545b4c878a818ab6de2d96e84f2b8bad870c1e67b"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_143.jpg",
+        "sha256": "8b32fc496b2d0b45194e2469a5b8eb334acc6c7e389ea7120f80d8e9b8a1a7b6"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_144.jpg",
+        "sha256": "b10e2b92adbdf8b76109f29c744353b09b730460e6ba62bf50fffe061ca52ddd"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_145.jpg",
+        "sha256": "f3f22460ba8f6dea96b162395e09bed2d1bbfbca2fc8055a643f419e1181b74e"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_146.jpg",
+        "sha256": "577e50984f10f2d07fcaea4ffb8695576014646146796f34df1d15603ac5a56d"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_100.jpg",
+        "sha256": "7524659ea2d8f6624dc1a6e332023d3712fa0a7856d9c0ccf6c9d4d44c0c9878"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_101.jpg",
+        "sha256": "08119377914b13f24f264b12d54843e2327c436ad320c8b90f02f3b31c0f0a74"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_102.jpg",
+        "sha256": "c793bd14b4c0e63048744d68889ef4bd6798d905a6b7ce8226ddbb04c3ebe37d"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_103.jpg",
+        "sha256": "5f36ed2613ca73ff9330d7cfbc7f06bcd8706077763e392eb03877b6b365ba33"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_104.jpg",
+        "sha256": "20f4f44dd0690488073dd3e15435b6678300cc1e028adffa60c3ff11f72e040c"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_105.jpg",
+        "sha256": "79d8e9194aba0d9184fbd9383b341aaca4b720b869c77e4a476544cacef56187"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_106.jpg",
+        "sha256": "335a43c5c09c56e47020577f3024d5c3b84fe1257143b563246f334e259b2c12"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_107.jpg",
+        "sha256": "03b23e26ac44ebae63e46eee438b43f1061eb262930809ff92f6d32da9e344c2"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_108.jpg",
+        "sha256": "8c6732e35e8d4af7e53f286b997100a177da983eaad82a7779f627c779296cfb"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_109.jpg",
+        "sha256": "1e954e1f4a07c8e53f938cb0e4815491fc247c1627e7781e91de56fb06ba1321"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_10.jpg",
+        "sha256": "228d52d92a9a28256394a270a8f52a6ac78681cfd6f5a2bb7c6cc53a1dfc4dc3"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_110.jpg",
+        "sha256": "79d04f00cd52d112d7dcb1b06f6bf68539a2d2e00955ea4b152ae1433e9f844e"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_111.jpg",
+        "sha256": "0596ee42a137bd585bacb7a536bb31b18337d73333b5201e4554626009b3c11f"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_112.jpg",
+        "sha256": "22390c05355bfe0d812f305e269967c6ff8a8089cdc4f0e114c3bf90cd5fde26"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_113.jpg",
+        "sha256": "a1cf2f981ba80fd7ed5b932199542064af14e639f97be00c8c517485a91e9300"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_114.jpg",
+        "sha256": "d982991826c279b994fa9e57c391eea2c3a8e04ca0a29171e2fe502dba832c4c"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_115.jpg",
+        "sha256": "56efdf19247aa106eee346b24178b3d960f7bac73d4ff967b68ee05122963598"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_116.jpg",
+        "sha256": "bb691a315382677b38ea22a1ba54a3e618e08999293e10ed08a894a580000588"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_117.jpg",
+        "sha256": "a99e796625932921f3af53b6530e9fa954f8b8585578877b1ba6eac7cbc62333"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_118.jpg",
+        "sha256": "9aeeb6eaf6f36808dee34bda7100be49f2cb1ddcce31d4fb2c7e6b9533c53c72"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_119.jpg",
+        "sha256": "cb9f5e1f90a731484cc5b896632e236f4ce1c3dcacced541ca0467c8577d4786"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_11.jpg",
+        "sha256": "0091d8060bc5460c57de0308ed666a79487f94c83475ec61438b68c380e08913"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_120.jpg",
+        "sha256": "b51e3756975cede25ad2bb1979571d5760f95414015ef2c941773547fa585c6d"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_121.jpg",
+        "sha256": "6524be0727979c65510f0488f6687e50660f0dcb1fc22b5af3af8b8b66d5b287"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_122.jpg",
+        "sha256": "bb7a2514ab99d51369b4a02e7591cb641b3dc5a560a813db49095b5f41546c33"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_123.jpg",
+        "sha256": "7a22519710d371abb7dd3ee497fb6107a79c16976f4f45856ed0995672c20398"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_124.jpg",
+        "sha256": "17cb98e1ae313118c5283f9fa9d253c1bc2c67a05b5764c971babc478b470f34"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_125.jpg",
+        "sha256": "2da0425b39fc638268af73941988bc606b7bb112b2757e796637e6a3e6e52f90"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_126.jpg",
+        "sha256": "5f2ef2c5017a72cf5655b31a75fbea2b2cdbf99790a1705e97b42a4574c7501f"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_127.jpg",
+        "sha256": "b3233f226195c3b2df8ddcad46da341c05f0f58ea5aa59c4670489441bd6451e"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_128.jpg",
+        "sha256": "b96abecb1defabb2d592f620f62da1d435f0c338024e74cb908b5b0af40b8f1d"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_129.jpg",
+        "sha256": "1719cef557a0e1656acc87df9d5471f82356f777f2608df952503aba4eecaf89"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_12.jpg",
+        "sha256": "5d7d40eaf7579af0ca9fec8ea9bd2aa4a3a0600b9e646c9aba9995cf7ebefb01"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_130.jpg",
+        "sha256": "a1629a8710ab7bd8786ddeab82eb5fd440463e99b34aa9a1383258d99fe96400"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_131.jpg",
+        "sha256": "fd5d1e24fbe82fe926ef7e06114c8b966855a531358536730fafa49c6b950190"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_132.jpg",
+        "sha256": "1b218e4ed54dfb1984b0ba8d6cc03bda1e93a918e14df672fb7e5e5dc09aec53"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_133.jpg",
+        "sha256": "fae0d62737969f7d392ad71f11a24166760e9c111b74b3f95c1ddc811d34603f"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_134.jpg",
+        "sha256": "d5e2beaab8a114fa88b442289e448e8186b3e1dc9d141efaa6d6f70b9d454eda"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_135.jpg",
+        "sha256": "a40f8df2bdb4d6802d63e94f47d4d0482ab0927e90842a05622c2017d9fe3f20"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_136.jpg",
+        "sha256": "d50035059778cc58915199bfaa527e745a28ccae7a725ac0dee3a4307eba2241"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_137.jpg",
+        "sha256": "67357cc3487b3e7c80be2d1d37a211bca131ee14bf39df8e8f2408491b3aa734"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_138.jpg",
+        "sha256": "c95b188e83499c76311bed4397724cd0f097223a824dfba4d5e541da9013e0b6"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_139.jpg",
+        "sha256": "56e403af03fd7331a97faf104608715d1e29406719b007e23726ab4815069434"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_13.jpg",
+        "sha256": "d751bcb6b9e5594975e501c5d39a091d8879663493af53f8517abdda79742606"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_140.jpg",
+        "sha256": "73e97788c0801a12da235a45df8bbd52f03be58398a9a1458094ab4e0e5fa11e"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_141.jpg",
+        "sha256": "ce45fbc2abd8a5a2b241f6e53202eb1a07306dcc20235ae905bcb205532d910b"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_142.jpg",
+        "sha256": "4cc5cc71d09e86782938a071bf97a74352c03a60bba9c5e39ad276818f76bc55"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_143.jpg",
+        "sha256": "eddb6062f27bbdf4897950bae5881854c9060b1e08e9e4aaa3fa10859c1f8460"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_144.jpg",
+        "sha256": "61c95e126d35754f0b01025cfe2a874486e0e3845fde296f2ed8383a686b1948"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_145.jpg",
+        "sha256": "76c4e6a50aee21985d108f430cf8c42152f5c86f2dc01b88d4f31afc89655e84"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_149.jpg",
+        "sha256": "110716cca43e1cc63fe5a7816d50b550d907c3fdbf4f491d6cdaf64fb0c7f45e"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_14.jpg",
+        "sha256": "9c5b139c572e2e67c210eb7b25058890aa110f99b7f532ff00c2384a72b74f08"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_150.jpg",
+        "sha256": "e7e2c03176df6561469bbd9d750bf9e07d48fd557c3859c27f489a5c89959e88"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_151.jpg",
+        "sha256": "ba5ee8e5bf72e7153d67a8e46a2e9608f6d0a29c8fa77c5dcbb446b8e23c32a2"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_152.jpg",
+        "sha256": "44960014291b7213b2b3e7f61e1eb430582ce0e4eac2272862b9eb098fe5b858"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_153.jpg",
+        "sha256": "26731a4da70b96afed04d5c69a4556fe439add6bb12c9e2dfde02a70415c3f3f"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_154.jpg",
+        "sha256": "301e843443e2b311bb4f74107340eeed142ea067a5c4892ef8baeea3ee061e54"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_155.jpg",
+        "sha256": "1ae02a34cd218fc47444a6708600c3c868b8676a90d1b2b596ce468e98afaf65"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_156.jpg",
+        "sha256": "707771a3f92c731bfd80f6b8f2b825c86626eed27ccbf6196e37d0cf99180c52"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_157.jpg",
+        "sha256": "f3fc5ab31ae6825eb5f4e409bf0dea88976893b87b5aa27221817173c4d83d99"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_158.jpg",
+        "sha256": "b004e5a3c2da4a37257c81b4062fd763c42c946808c120b364c374df42b1ba04"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_15.jpg",
+        "sha256": "7db43ab01c086ea91654489d390b1350eef9d591b2920cf2237edf0759169572"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_160.jpg",
+        "sha256": "3c39ac142c79f5b29a812cba9c604484f750ec11599b5e4783822df018cdde65"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_161.jpg",
+        "sha256": "e1d011ffda1d3bb71034447623f56869883a14fdbcd40aed88b8457ed41d8897"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_162.jpg",
+        "sha256": "a60a3eb846e5a76a07d3a5bae793df9d8dcbd1d0f1cb39e74bb298e0949948a5"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_163.jpg",
+        "sha256": "4941a1b40a7096f53b182dcb3c267f4b1c0585f95d52ba9cfaca7cfddefb7fa5"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_164.jpg",
+        "sha256": "8c4eb1fcccbbc98fe3509956a4179af77e1abcbcf9bbdeb846e259d42633002a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_165.jpg",
+        "sha256": "c2420e8dab664a3edf07daeb490e96959dc989315545db010e7872624feb12ba"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_166.jpg",
+        "sha256": "51c1279b7127311e46bd4a10a708b6a6ee96f4f8b75638dea0e7b004346c9632"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_167.jpg",
+        "sha256": "da5e71d6872072761831c5da8a6a48114dc810a7159fac7e0597f2ed9da416ef"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_168.jpg",
+        "sha256": "5d596d56aa420cd60ae8f07f46dde2f6cab8d2e73885f6222463d40c76cedc21"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_169.jpg",
+        "sha256": "62129b3072c3f093a2080ab03a44da09b021d061531fc1bd411836294638671f"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_16.jpg",
+        "sha256": "54450452b3d8a25dc1c2b9083d3abce17d77ed654072dfe8bbc24fbe79ba7147"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_170.jpg",
+        "sha256": "3fdc26ff1d328e28949ba028d5eff7627ad413c2eab3a246fd5eed6cecf8bd62"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_171.jpg",
+        "sha256": "93c1634947b5958aa1f7508180dbdc02ffd37843ca8a296365eaa885f95114d8"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_172.jpg",
+        "sha256": "8b800b5d1688c65cb79e3587a1c567792dc4440949e512e09493609bcb07167c"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_173.jpg",
+        "sha256": "c1a89a087756eb50af2a60559ec4f7d71c8cead225cc97901b72060f099b747a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_174.jpg",
+        "sha256": "58d78694d0fb3f73c91a295912e57f0f6c5d784af33b39cf1da1d719460246d4"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_175.jpg",
+        "sha256": "aeec7b53893a20f4d3e4502d09e9890d1d860056af7dd6e9fa0901be97837494"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_176.jpg",
+        "sha256": "833e33c58ba4735e58f528b3cc0fbc12d0e82f9aa4419b66a2f7453c4a142718"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_177.jpg",
+        "sha256": "de1eed6676de7385e6d52267ed50cb4e82e97988118760b36d75af96610fabd1"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_178.jpg",
+        "sha256": "d0a9c884f09391588125bce5c21c6f6780c8c169de7f780cb308c7d226b9f3c6"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_179.jpg",
+        "sha256": "b2b1431fe09a659f04725eb9c0c3b1183979c261bb5a92a600b5325a2ebb74c0"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_17.jpg",
+        "sha256": "6d383e121d8b15c36684c5e69e9b5922937cb62dde46c16cc7684d1c2a3dbcd5"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_180.jpg",
+        "sha256": "8e1b3e31faed868c418018049cc18836caf280c41bb2892d32fe647abcfc4899"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_181.jpg",
+        "sha256": "88b284167cf1962f2813fd5924d059f5c4a3dd638c26dd9c73ab91ae1ff92bf1"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_182.jpg",
+        "sha256": "e264c193193636ce181c41ba8ff7477735e791c91beea9892ad249fdb37659fe"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_183.jpg",
+        "sha256": "52cabb3d9efbe32d328e39b740e4dfe5117eff03849ff3a41b13352e46799de0"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_184.jpg",
+        "sha256": "3d20878f71ec95e0d29169460ffa0e2d6c7b77ec13056f2ae20c7b81e88fc18d"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_185.jpg",
+        "sha256": "0c76fec1cbe388abe783eabe9e8a477138a977e6af71190c91a129ac804e2b8b"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_186.jpg",
+        "sha256": "c5ecd5ffb7f9c33a910ab04e17209f25b08412b5fa62c2ffb190c07300d28920"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_187.jpg",
+        "sha256": "dc5598f98077a6cae776b2f9f8f6c933cc812e6b70d26c730393b41ac11f3c7e"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_188.jpg",
+        "sha256": "f416f5e8aded708e7a1d975c2e44194ea9ad46c33360d0003b7c8b92a342f8df"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_189.jpg",
+        "sha256": "fc267f21fae206691edd8a6aa2b8597a6b83c7958986a0e2cdf89426e3ce2380"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_18.jpg",
+        "sha256": "e3f2ffc349271a1acfb9bd48ab4c4788d34edd645fbb1d0f71b324c552bf57ee"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_190.jpg",
+        "sha256": "893c4cb3e13aa23d36c447da9af86d1bdd801b1fcb30eaffaa8ec005ebebeb05"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_191.jpg",
+        "sha256": "251f51b389cf1c91c0fdf923cd391f0157e3bf3d5a0937332fbaeb1f39adbe57"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_192.jpg",
+        "sha256": "9f9eb7462f5f609663e68e0de1c7fc82b56577bc09364b1d5eb889a07ac51d0b"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_193.jpg",
+        "sha256": "5f39645b113b5a51fc159dfdebf30875855af3e988bef7011d2b60c66215c653"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/beagle_194.jpg",
+        "sha256": "7b6dbb878b56e9e031fafff91ca3de1801b6e28cba62d2d117a0bc64b9e5b828"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_146.jpg",
+        "sha256": "7c9172b9c5e7952b9ca5467008dd5dceaf819487d2dfaabfc1698240143cecec"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_147.jpg",
+        "sha256": "06c358449823ee265b1cfc5c5d07891e409352c8752ec0db29872dc85f1644e5"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_148.jpg",
+        "sha256": "0c8a0cd743ff2fb94403f5d5c273bcb3552a57d88bb99e872cd5921e62f5d659"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_149.jpg",
+        "sha256": "d35db204d5020ef3f29d804780e23918e647c794be75e1e4485f198a7f517fca"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_14.jpg",
+        "sha256": "70ddde240970dd1ec3a135b40a4972c38a12a6bba166e9a579269198862af43b"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_150.jpg",
+        "sha256": "12210ed318c19f798198b171356e0ce632e1ef57eef7ff05d5799a88af1c42e9"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_151.jpg",
+        "sha256": "4d9b5babad22b0f72aac33ef3c14baf7c3e170cd10d12b5734fd750fccac6381"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_152.jpg",
+        "sha256": "f66cbee598e882c2dd80a6256912954523e0ca9f6be127ae2de5f0e032da6562"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_153.jpg",
+        "sha256": "eed90cef66d95e17336bd9cb5fb464512e888e676d5e8a5c4c251bb63db7048e"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_154.jpg",
+        "sha256": "7f86673ef23859e6d5920510e6eace04a5e6e250ffa649ac91ca08874b617141"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_155.jpg",
+        "sha256": "ef9c871ab53dff779575ed7be0ef9e0c26c8dee6be59789acd2d03026e025bbe"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_156.jpg",
+        "sha256": "a7ba947ddd41ca2c603af5ff5715920a68900bf5b88bc6d225546dea5c5e30f0"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_157.jpg",
+        "sha256": "01ec006ff74bc97bb2c598356ebfba0f6a4a4b9475417ae96cd3e0d8fd5d0883"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_158.jpg",
+        "sha256": "3bcaf66da280d5fd83584d411dc5e98d53b4c0fd3938562e39efc4f1f935b29f"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_159.jpg",
+        "sha256": "741493b3355283db85a86af76d51f74f45f5984ef584ec25b93ea109ec435e4a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_15.jpg",
+        "sha256": "c728393432be17792ef59a785fd355adc6aa95e0c8413b0003ed01d58e4dd4a6"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_160.jpg",
+        "sha256": "4359e68cb53f504d86955017c5aa60c2109edf48cdc66d817e9bf0fab50adc5d"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_161.jpg",
+        "sha256": "4eb157e14c35f7efed1e2863fad2bef924d07e7f17bea793a053524c90945021"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_162.jpg",
+        "sha256": "eebc8b219156f59f98469937c33a75af0b21c6764428fd5c669f54cd310a8de4"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_163.jpg",
+        "sha256": "0607eaad9fbc12f4cb91daa0cda8dfacfccb93338696d01e1e79cfd76fc993db"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_164.jpg",
+        "sha256": "ed9b85643c8c815d740996e7511382fdeeb415c8bec73e469d5088166b119f23"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_165.jpg",
+        "sha256": "7d4ba2978ef7e867d82ef7ab9fb92c8f50a026ebeca7baad9359aa3570c40ee4"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_166.jpg",
+        "sha256": "badc376605525d8652e3ae6070f7d168c9799619557f136d3927d219e4460d97"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_167.jpg",
+        "sha256": "eadb3dfb8523109cbf95f2f0af6befbba2a07c97325337ed79a190dbc45310a8"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_168.jpg",
+        "sha256": "acb5eb8f4c461eb7c4ca8ce33ef8d639acb82b66f844628e06e9ebe020b68675"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_169.jpg",
+        "sha256": "5af3ce89d87198af6a642313c62c767a8f7d2ad8f62758217584becdc96d87ff"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_16.jpg",
+        "sha256": "34557e46d2d28db1ec5cf49f90b58e9503a2d655387bee8a22cab154def900c7"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_170.jpg",
+        "sha256": "ba78baf1a72bb5d0b3b73a559afb4e707906b0a44cc033147951fd0d13ca736a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_171.jpg",
+        "sha256": "9400340f60e2249aeb364c8cb807d3c29ec90d2274fbc6db9c03834f5b629190"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_172.jpg",
+        "sha256": "7993a3e805340d9f70a0941cce29c3b6a6c69723f113768e10d74319cbc35346"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_173.jpg",
+        "sha256": "412cd0b647e71334b53663c441b291f75929af8a9d8a8a36dfe91122a9b15086"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_174.jpg",
+        "sha256": "77b675f9437fa8d27b842079894188735b876b17b5502b45792e9bcee9ed672c"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_175.jpg",
+        "sha256": "c4e92fc37fe96d9488d4ddb66ac70ff8c686f2923c0c091675f4f6ea60bbe0da"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_176.jpg",
+        "sha256": "aa0888c0e95af6b3146eb1f169a9d7a5c20e089e1820e9749250b7d9fc2bd07b"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_177.jpg",
+        "sha256": "4623bba1d05f1cefeb6beb68d01cea443ac4ffef9c7152a334a30a92e476e6c2"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_178.jpg",
+        "sha256": "b23333fcf5b52dc3bf41e94e748d52f57731f8f873ae21ba174880b41379c7cb"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_179.jpg",
+        "sha256": "190af7ef6263ed4d3f6f68bfee7f77c91c4a2891ccd89d7d87a835cf1000aa63"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_17.jpg",
+        "sha256": "548fb07cf738724e73d4fa613e197c76c4d4962620553809ebc33fed70a1a7f5"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_180.jpg",
+        "sha256": "867a390a2c0e0e6d0b432ceaab0c2731a6fb9188cdefc23e63984f6244952b27"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_181.jpg",
+        "sha256": "956040dbf50902f0ecf57d6fbd99e16ae800d6dfe2f8a98a8c81716cb2f2e634"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_182.jpg",
+        "sha256": "994e998be307355f34e6e7039be42f934862ff82597515a7cf9867c3aa9ddece"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_183.jpg",
+        "sha256": "b856dbe497c2b37be23aabc9273ba875e3b1481d174facd7f076d9f6dc7c1956"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_184.jpg",
+        "sha256": "9e5f87fa7b1b800cbb648a3718f36d70979f1c4646db5471bef156a333e9bcc1"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_185.jpg",
+        "sha256": "cd718660c061fc7ec3f02190177ac390216bce8885d3bfdb5e2dea3d5ce0a465"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_186.jpg",
+        "sha256": "56c5c933d534d9b25da2b2290c38db921c62c2bd59371df54d2fba139d791c14"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_187.jpg",
+        "sha256": "1c9e4f5089cbf528b1e219226c269a777eb02326b2db12ffe11146faf2b3aff8"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_188.jpg",
+        "sha256": "831342ed47ef11729c4b19dad6ecf48c7c7da67aa328a8777a825f92dbea7922"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_189.jpg",
+        "sha256": "f575244ab6bda0254ed5f27433809a2bfcb5c26d38497775708b8d31066d7a1a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_18.jpg",
+        "sha256": "df849c580a8d73eb3fca55ed7a25db92b3d2449d33be02c8c7be9bb623551063"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/boxer_190.jpg",
+        "sha256": "2a4eae7d2960fae916f81160704b8236cc44e72958428e5dc7bb76a799ffee5a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_146.jpg",
+        "sha256": "566169ca2d91af94838a2bef4dc7a4d6cb3a24776875e8ee3dcbd340f77332d3"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_147.jpg",
+        "sha256": "8da3104434a73aa8a3e087a0fa99aa74cc1ea6ff402e3b94c14f8ded2bd1a995"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_148.jpg",
+        "sha256": "c40b6b68b1aa0cdb4daa9be1670ab9b2e5e25b7e1f23232222252e03ba733fa3"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_149.jpg",
+        "sha256": "deb8a05cdc5689cb70666a873409c75b1afa50f202cc820179f4b44d3d219695"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_14.jpg",
+        "sha256": "d576cb5721171986da41ac5d4f0fc3ef16867a85577d69c75e86dd6efccbc4bd"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_150.jpg",
+        "sha256": "d9f0a1b69408895ee7975d8109a87b9fb19f4bbb33cadb3ec7cfd74f32a43baa"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_151.jpg",
+        "sha256": "864e3fabf1f89bdbea9439fa3e4a1458940867148a5d707ed5347f09a89b656f"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_152.jpg",
+        "sha256": "5cf9c0e4ca81cde06ba8954340849218d825be28305a303d8659c46a1cdc84b6"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_153.jpg",
+        "sha256": "47e3bd3f62140d5fac89ed0148d2a70c55c5a7064b45b168515ade26ea76ae1f"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_154.jpg",
+        "sha256": "ef5f5432521ee5c00ef49de8b9bba6e7cc283cd6eefa607a55d143734d7efbfc"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_155.jpg",
+        "sha256": "9569564185f493ee498a46e634bacf9f22a2420fca4f85515404d995e16bcfd9"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_156.jpg",
+        "sha256": "0c22c0074942c4f63ed78d306c856adc45c781b1f1f3fd358345f77e96757ffb"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_157.jpg",
+        "sha256": "dbf60b9b0d8d708b370c628abbca8c1f8445a723488ad97517f4811951ee2f74"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_158.jpg",
+        "sha256": "466f189d3a1924f71840845c8b1cf5413a6e5271dd4ee4501ab4c8bf7a6c1589"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_159.jpg",
+        "sha256": "018afe71c828cb586ef070f0eed6963cacc653ff5f4163609c1cc97dd14d3c6a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_15.jpg",
+        "sha256": "0386b154a0c84af5824ed5e12414636ce8db8f441e262db83004776a0ad518ef"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_160.jpg",
+        "sha256": "450357a259c11eb35a5808699315f38bb8179187ade00e5bc53f87a79f22a9e6"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_161.jpg",
+        "sha256": "a5eb748fb9c3b6f26ea6cce8d50b1dd3c7708ad79884735d0b91b3c51e7b5be8"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_162.jpg",
+        "sha256": "ca4cd5ce46757bd879be686414984e18dcc1ea095a5684e3246de3c823439edf"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_163.jpg",
+        "sha256": "4aa4436d7d399a827a96260a2ce9bdfaf97f8a5a0a479a29e4528585702b2bb3"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_164.jpg",
+        "sha256": "d355ff73de60d7d80ccc5a022f1dc886f2cd154cf267f68020098592782da6bd"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_165.jpg",
+        "sha256": "1faaeb768ce8dfd60c0da35663716fefe34345245c90ab31578c4e9735f61a47"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_166.jpg",
+        "sha256": "45ed6ef8c49faf21f22694456ea272480148bd189427f98d1b1cfa44e24e972e"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_167.jpg",
+        "sha256": "5d083c6fae3d8359a58e2971a20fc27e41713e98091c3ec66119742c64c3440d"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_168.jpg",
+        "sha256": "51d326ee564f8ee1b539a1bd496b2749c4227b76d72fd25ae801edfb601a3002"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_169.jpg",
+        "sha256": "0cdc1b62a7038b73621dccbde4f8ccaaff65393f6ce3ae6a3df628ce5fea3451"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_16.jpg",
+        "sha256": "22b8bf49c6e70ebf5e05bc97999ee62e607a82bb2a56d84bfc1efe8635dc0d67"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_170.jpg",
+        "sha256": "33b759678c10607e2986dcde3be113b76087ffddc13223237af673c253627b9f"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_171.jpg",
+        "sha256": "f2eceb470a0953d10d0ce9f9fff268d4a6cf65456a752e62b6dbbc90eb76023e"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_172.jpg",
+        "sha256": "a977d2e9700eca47f845da086674a3fdb159a0a5836daeaae199890ef78377ac"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_173.jpg",
+        "sha256": "16f2e0c8167cab8491d3dec4ec5ee6513e77ff8467ebbf9642b2a058bd4b1080"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_174.jpg",
+        "sha256": "cf9c1bdc8e282054f85f9e4a6adfac5c5467096472febfd8f72b3d956f7ac547"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_175.jpg",
+        "sha256": "7e5ed9c6e5c1c08f19de14a59a0f52f9b8ce04e4e24ff191bbae3568517b6a57"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_176.jpg",
+        "sha256": "801e11c0906debfec59661849660899b769c3c3c4f67bd0098e9fbbfe1247b03"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_177.jpg",
+        "sha256": "05d6b6fef50861e271ff9265b598905c802c37706165a26b27131c378daf1544"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_178.jpg",
+        "sha256": "6154270faaaa1745b654ad2d5ad1debf073cf0bf0d27d64bc2e1211625a4ed2c"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_179.jpg",
+        "sha256": "19c4b85925a86511e4988252e1fa2e95c857fdae578477b95caadcac9140ca07"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_17.jpg",
+        "sha256": "689f40bff526f523f305c9e74c4d15db3a74e80937db2f427b5d7acbfc315a96"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_180.jpg",
+        "sha256": "48b24aed42ad441d2c49f260a471a4a6e2436d63ae5ed3208f2a90f7974bdc33"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_181.jpg",
+        "sha256": "60e20b2482c707643383e7abda170bc77afa5dcd16da1084ca55a9be4a676315"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_182.jpg",
+        "sha256": "f696a1799069dd6175d80fc56e73e4b9af06b3b6b830eed1863ac15cc2f41d13"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_183.jpg",
+        "sha256": "e8d619981f14337f7e29a0af4be81e65810392ae4fa38d42faf09725301b207c"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_184.jpg",
+        "sha256": "62d370ba5914d0c02539c54effb4b22a9c829abf7fe0b7640face11b084ea56e"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_185.jpg",
+        "sha256": "8d155902967234b9b922dc07d8442e66facc054a2c2aa8c4fe5a644c63a06687"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_186.jpg",
+        "sha256": "c2cf188831c1eaa3ad942b99e52790202b182d02e0c5b510e3a4d1d0d27039e0"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_187.jpg",
+        "sha256": "0b35e354915ecc7910a06bcf9b6f1d3f34988fdd3de130406aa3b6ee91482273"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_188.jpg",
+        "sha256": "0dbcedd3dc1c34e5b55574bf51c4b1f2cc588e529d77c512f2d5246ea3fd7809"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_189.jpg",
+        "sha256": "111c743385a3ce7031a986ceba6d6b824fa85f0d1848a07a1d0a5afe74c9c40b"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_18.jpg",
+        "sha256": "652ac4482fd0159db317a3faa8f5e780587ee78a7776f9828c44fa268396caf0"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/chihuahua_190.jpg",
+        "sha256": "e85bf6adbc7b65f8a99f36ff7c64a77c21ece98b1574f3296a18b140e91c9ac8"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_147.jpg",
+        "sha256": "bd72d69114a9a188727563d36f0c90553dacaf5189653c9a61ff58df881074fb"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_148.jpg",
+        "sha256": "d0bdf8823ecbc56e61e7f080e06543cf2f585de17279504cc44ecd71b818f446"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_149.jpg",
+        "sha256": "8de87a822b91f1860544fa3fad43a2e6746ed99666c65aa1feaf2429d2a3d519"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_14.jpg",
+        "sha256": "0e0548af458950f47118d9a47474587fe8ea60d64fed708ce321e30909d62449"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_150.jpg",
+        "sha256": "042b167d70c15eab5003f82c0c93608724543cb85f96db5a9be6f23ef71ce9a3"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_151.jpg",
+        "sha256": "ce584b9e866e1ead67f1fd26099890c64a0647fcd032c7ee666df0a76d0c1a54"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_153.jpg",
+        "sha256": "33769efdd1ed4f28fefa920cfe26b19f6be6fc7a2f5f2f80b494c6b06d724e17"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_154.jpg",
+        "sha256": "465ce430b7fc2e9facddabc33475ba73fc329791962edb25e4f380c47b8927c3"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_155.jpg",
+        "sha256": "886f786cdd8e4236876e1c389a578ae5c1cc9c556732255d1050baae1888bba6"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_156.jpg",
+        "sha256": "0bbba6a90c8d16caf49bcfc518ec84d90eaeb5463079164c3d2e5da72148ab44"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_157.jpg",
+        "sha256": "10337d5ce402d0dc02abf5d46b085b0d81f84f340a08905885fa237ff3f5f786"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_158.jpg",
+        "sha256": "8cf788e976368e2d5425b32a9b87a99e8e4becd10b8cb7e437439e32f99ed6d8"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_159.jpg",
+        "sha256": "844f58a47c048a964b3fbf2fc8befa1d222fb9f4b9564a656a2d774e71a7beaf"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_15.jpg",
+        "sha256": "bc66020b6d469b3b59678d7d990e6a0c0fed36e56fdac41716883dc896926c11"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_160.jpg",
+        "sha256": "80631923d9d3edd722ad0352fa3715c84be431d77ddfd67524bf75ae69f03bac"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_161.jpg",
+        "sha256": "d294cef6aec3d5dc6f9791f5f64d8ccf7678ee0ee17e6972aad9dbb967ce3398"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_162.jpg",
+        "sha256": "f7c6de24bf005bf201a25ae41aaba2ad9efeb8713be195dd6ceb12fc99981579"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_163.jpg",
+        "sha256": "c4c8b1f384b72bbd66ceb6b52238b79292cd0edaa14a352d96c6eb9950b8d79b"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_164.jpg",
+        "sha256": "bd4616e1f4d43e83dc2bbc2927fc36362da32091528dc5fc32535dc1491b4838"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_165.jpg",
+        "sha256": "1f6e5710afc56db915e5a6d60bc04d116eb548d40aea1c75e6f61f7970c61760"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_166.jpg",
+        "sha256": "ae2b211fed5c283981afc10938fabbeab2f9d62fd9de1e1aacdbfed39895ffec"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_167.jpg",
+        "sha256": "a472caa7e465d535416bc319a9e735730e27df2ee4b31d957443d1eb3b2a2e44"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_168.jpg",
+        "sha256": "67f3bb004c9aaa8709e3fefbc857c789960d93da87ac1b1b56267983c52834ff"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_169.jpg",
+        "sha256": "2fb91f55cf265cdf056d197812dd1d07202f05d84ae009adb996d55c103ac48a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_16.jpg",
+        "sha256": "e384e56c06dbbde0f7b5f3ecff556609cd1e7f87aa18b8b42fbc292a6ceddde5"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_170.jpg",
+        "sha256": "7ec8e789ac7c064fe648b1bb48f3b6c652cfd158c11e99d4cbb6ca94ecf42033"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_171.jpg",
+        "sha256": "766c384104402e3e10ec7c0aa05191eea7292a93a0b26ae1609a9b7cf4e52730"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_172.jpg",
+        "sha256": "78e90ef04fa98c67340fc44b12993848f9d91a8c7958ac1f8b245d1a0c171793"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_173.jpg",
+        "sha256": "ab8bcabbd80c09032b5d35efcbed85d8b30923d2b4f965cb5452a8a4982f848c"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_174.jpg",
+        "sha256": "ad5bc95ae64bef1f6e2657acf89ba700cd53a46c98861d5460da8a5ebd99cfd4"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_175.jpg",
+        "sha256": "8643a9a842312a0e9ca723f3b8474d3cc1be777c83b1d9cb0133995db45374ad"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_176.jpg",
+        "sha256": "86d49a66a5a12dc28bacb81908644c72a26f86f35c370ed9ae966cb2f301736e"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_177.jpg",
+        "sha256": "97ea7121cc4e5f76fd9b7be59b896ca423a7931583b8dae6b3a79b5aefd33a7c"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_178.jpg",
+        "sha256": "adec52a89d45a309d5acf52b43dad90cc43657ea31e98febc213d271ff02a197"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_179.jpg",
+        "sha256": "f4b784b70f6a31e0a9be3336bd72cc707d8f19071a321c5c52d55a811e091d1c"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_17.jpg",
+        "sha256": "4f316265f83d76b3b8af2e0e1c76080b81f21312efa1759520a4f0d6b059bed1"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_180.jpg",
+        "sha256": "1b49935fc2186bc15f0ed9897c3163cfb11878216edabc42c61a15cb3ac6ed4a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_181.jpg",
+        "sha256": "ed61e07ea9cab73faf4c2745e7cce586c4124e003ce0cc63e37d3cfd93ff8586"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_182.jpg",
+        "sha256": "663ca72d1662f096aa0af3ce18c1356db0f9899bc85855610d79966ca4d9ded8"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_183.jpg",
+        "sha256": "ce713a08987f093222081a5b0463c0a94d2228251bc85775b231b68c08edd05c"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_184.jpg",
+        "sha256": "ae3f06013236f0bd6c2450a6cbee2bf208e138ea9913061b82fd3de8732d17ec"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_185.jpg",
+        "sha256": "8a628281418134f7aa52719f58c6dcd703c8d3f8d17d16475985eaefa60eb781"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_186.jpg",
+        "sha256": "b9e94bfb361d3191a0c519a129924b4da89d6e5571f07f5b9b698e6faf155dda"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_187.jpg",
+        "sha256": "73ac0d9517485390e6f91aa67be511c9eccfd02b7ccf1d1fdd0beac7cc0a833d"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_188.jpg",
+        "sha256": "b5fd90e629c9b53be60c3a76f12b407af11c02ad806a6185dab6c4abbb127568"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_189.jpg",
+        "sha256": "4dc2b24c6e483784229c54177317fb5f3d821f6c9357602e755d969bc9548ff4"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_18.jpg",
+        "sha256": "86fb8ba1b6e6104b2d1d432dcb2d150836d6cc3c6acd08b6ddf4d673093dcd3a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_190.jpg",
+        "sha256": "c834e33ed09efead3b9ab5ed9da843d952768e5b9e1382224dccd41788fbd81c"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_191.jpg",
+        "sha256": "74db46d9428915c3beadb9a85e1a4094c8f341c88e3938d6adb18317c6b17d6f"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/pug_192.jpg",
+        "sha256": "683e0248607e24ab6f5aa472e682357d9990f79634028e090fd17bd02972159d"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_146.jpg",
+        "sha256": "80a5b9435ffe6a7a1f2ea4d9485f1cd88d4b8c66b616b623055380eb2643dff8"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_147.jpg",
+        "sha256": "b704741e634cda699db23ff7874ae2f411ac5edbe9f64e2198470101ddd47f8b"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_148.jpg",
+        "sha256": "eb69762390192ac45fdb94e1e08551a018c421778b4b94881d00f3da5ad3db6a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_149.jpg",
+        "sha256": "7b4849d369f110dd45c50abae131cb38bcd06b1465dc3d7db2572a169007f457"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_14.jpg",
+        "sha256": "1c70f0a83cc382781b7c67145e46cd5f14c234f7dabac5cf651ba35bb9e9e980"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_150.jpg",
+        "sha256": "d37852c6d2309936ddec46788c126256ffebf0f0ad76bfe9ae6fd3161f53576c"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_151.jpg",
+        "sha256": "c62bd23f53f279d50f2e8e23e96ca226308a83ec0b1d9796b51ae9306480a0c9"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_152.jpg",
+        "sha256": "bdd1caa4aba6d926fe2f405dd2906697570cc75f3326a40cd224a613b84ab647"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_153.jpg",
+        "sha256": "062d17b5dfe25b271999a73850dea8d0cd1c435cfb46cb486af77800c6bfe8b1"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_154.jpg",
+        "sha256": "5fcc350b0370b41757d9e81cc3ab7f95ec6356a32dbee5aae86b7a7d3c393aa5"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_155.jpg",
+        "sha256": "7c457fe3a2fb12bc1ab20adf44e77c940292393755ad440c7eac670ac78718f6"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_156.jpg",
+        "sha256": "39412945f2bcffb6968eca38b9a8613fafe174ede68ff76c93198e7222d2ef3d"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_157.jpg",
+        "sha256": "081a2ca9da191b957772bd6f0ddbb260b9fff136de9ce98535b9822b5bee6f7f"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_158.jpg",
+        "sha256": "f1fdbde599ffb55ea726d553e93065821f096d519a22a7201339571845d207f1"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_159.jpg",
+        "sha256": "f75bbbb5b1049f724fe306cdb697ce396563eec5fbbb13b9f18cacf37221b526"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_15.jpg",
+        "sha256": "896bb94f827748aed140d949b295d2db734935fe11940934508c16463528facb"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_160.jpg",
+        "sha256": "6ee99742eb62b42a58197b532908a62543867eb329feb0febb53d803b4c862ed"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_161.jpg",
+        "sha256": "60cc00c5304b32d0a6abd6eb77458e820765dccb339603a7ad189c39f8eb22ec"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_162.jpg",
+        "sha256": "da651d495abef178f6738b7ebd39cf41f726d7bbfb26fa1c1e5a2bdf91bb46f6"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_163.jpg",
+        "sha256": "db97f48af8b45e11e5701148f3613f32aa4217d9d912eaf6e9d5422051d6e708"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_164.jpg",
+        "sha256": "d19362ad3ed0dcb570ef09f583f30470294393c979334cf606921f2b422c8264"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_165.jpg",
+        "sha256": "dfa6a6785308cbf8f2fc81122cda2cebca1f84e97832cfd882256501cfa39e5b"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_166.jpg",
+        "sha256": "68d37b08ee831e625bdec1bc5cfc4dd9e0ddbd71a50e3de1e118c6153b356e58"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_167.jpg",
+        "sha256": "97e6f7c1078825e9c65e6bd2b6479bf581d5b5e33f38c5e6cfc66e7bad2c0d71"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_168.jpg",
+        "sha256": "cec1152f67b72e6606d6f2ef780c7939a4f1a642c1b72579e7965a454540067a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_169.jpg",
+        "sha256": "d11e2912991667aeb33cf84d3300134be47e2afb4a5799f7669f364950cda66b"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_16.jpg",
+        "sha256": "ed06a6eb3436216006b4d98f16d1bd66823212d784a354802f7d61a82b13cd45"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_170.jpg",
+        "sha256": "43b89b4757c41c56c33b3e0ad9b7ee82c963092b918a8d8c35ad9976fde4906a"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_171.jpg",
+        "sha256": "3aa49ac39f8ceac18917260952c8c88ea48d7f519f06c712e24f8dedc86730e7"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_172.jpg",
+        "sha256": "5539afdd7fca2585710dbe428467bbde68e4aa2cdb545977b88fa4be54ffa75d"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_173.jpg",
+        "sha256": "bcfaa18ab8fc3ac6d3deaa6fb3a4df0738d93a9f34c794d3ac703d07374ddb2e"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_174.jpg",
+        "sha256": "fe51fee84a640875deb9658a8dd4f6210beaeae7b73d3066515c2230e2889071"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_175.jpg",
+        "sha256": "03fdf4af53bf496bb364285133d811d84e49bc346ae12ef17fe1ee280139f8c8"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_176.jpg",
+        "sha256": "160f74356057aa1067f90bfce9939c03a48a64a6655d3140a193f63826c749e0"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_177.jpg",
+        "sha256": "33950fb4f1c682c1b5c7ac059b33044a98b2c7260b4593d2657322fed82c1a3b"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_178.jpg",
+        "sha256": "a8f610b5c740e2fc5996db9c77e330962c058fd0f143cddf3fab94942ed12a57"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_179.jpg",
+        "sha256": "afd12c1b025765a4cab7a8ed0f5b5d73d1473516224e5bb317230186a3bafa35"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_17.jpg",
+        "sha256": "24872568d1d2686fc16589f5d24b6fac355bcc728ff096cc04a8b9e8b5f37ebd"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_180.jpg",
+        "sha256": "ae06ecc4087b109d8d92a4a0e11c6de354980c2cbdc32ec3e74b8b12d598c878"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_181.jpg",
+        "sha256": "2542a7f130465c95a772705f49b038f21c0ebc138685baa2533abccc8ca6277f"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_182.jpg",
+        "sha256": "e652a63c2a1fde37f663c7b0421c0464d8340bcee627112d31aefbd84ad07438"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_183.jpg",
+        "sha256": "5017b9b5307d109bf550e47954f15714493318671be0e3d39400ad800a8bbd4f"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_184.jpg",
+        "sha256": "c77f48afdd66066fe22fc718b5a82253950ddb72c9841c5ee367ac61cebe9bcb"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_185.jpg",
+        "sha256": "0bdc42c8d473b659b4f4367205d86128ea5ad9566fa9a9df2ff6cc6dc44010b4"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_186.jpg",
+        "sha256": "cebdeb052ed568bf7acc54e34521cd17e2b12cbca91d95c358a22b71922f6543"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_187.jpg",
+        "sha256": "0b0305579562a093e2f6193fa47ad46b32e2ae7606d29b825bb05c83e09ba98e"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_188.jpg",
+        "sha256": "276794b7c6ef88a3ad73d10a68ae5b2c271dba7908de563562dc34277ac624b9"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_189.jpg",
+        "sha256": "c97f201fe85fad1dc05144ba8d95c431da6eb04b7232b90a994d04b8943d52a2"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_18.jpg",
+        "sha256": "4b7849c7b5a064123a1abf65e43d6a26b36ae0d72edfc1a28968a3df3f122aa2"
+      },
+      {
+        "path": "/home/meyer/d/p8/steelsight/data/oxford-pet/images/samoyed_190.jpg",
+        "sha256": "79bd4e2305621f4350e86fd5dbbbbf48f5fca5d3d38b3322b8615c78d49f009a"
+      }
+    ],
+    "final_fit": "all_trainval",
+    "labels": [
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "beagle",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "boxer",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "chihuahua",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "pug",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed",
+      "samoyed"
+    ],
+    "seed": 42,
+    "svm": {
+      "C": 10,
+      "gamma": "scale",
+      "kernel": "rbf"
+    },
+    "train_indices": [
+      411,
+      365,
+      447,
+      180,
+      407,
+      279,
+      237,
+      379,
+      85,
+      11,
+      225,
+      372,
+      453,
+      73,
+      388,
+      349,
+      109,
+      238,
+      16,
+      458,
+      166,
+      402,
+      117,
+      89,
+      427,
+      498,
+      381,
+      472,
+      198,
+      139,
+      361,
+      332,
+      43,
+      328,
+      106,
+      120,
+      268,
+      419,
+      62,
+      277,
+      135,
+      231,
+      155,
+      107,
+      165,
+      213,
+      253,
+      42,
+      308,
+      232,
+      163,
+      460,
+      164,
+      95,
+      450,
+      290,
+      319,
+      191,
+      258,
+      420,
+      199,
+      455,
+      317,
+      358,
+      340,
+      25,
+      479,
+      476,
+      438,
+      240,
+      192,
+      27,
+      262,
+      128,
+      235,
+      91,
+      194,
+      144,
+      416,
+      384,
+      288,
+      306,
+      224,
+      318,
+      69,
+      255,
+      446,
+      409,
+      256,
+      81,
+      444,
+      480,
+      316,
+      46,
+      247,
+      74,
+      398,
+      494,
+      380,
+      183,
+      335,
+      327,
+      185,
+      113,
+      421,
+      78,
+      7,
+      68,
+      275,
+      122,
+      126,
+      373,
+      436,
+      484,
+      75,
+      209,
+      302,
+      443,
+      276,
+      401,
+      110,
+      226,
+      428,
+      432,
+      329,
+      431,
+      59,
+      387,
+      141,
+      414,
+      482,
+      442,
+      294,
+      196,
+      134,
+      394,
+      234,
+      265,
+      333,
+      236,
+      267,
+      320,
+      423,
+      125,
+      348,
+      375,
+      497,
+      146,
+      437,
+      434,
+      13,
+      79,
+      186,
+      378,
+      63,
+      172,
+      41,
+      469,
+      119,
+      28,
+      47,
+      98,
+      45,
+      24,
+      424,
+      339,
+      32,
+      499,
+      132,
+      315,
+      152,
+      242,
+      26,
+      159,
+      448,
+      477,
+      222,
+      39,
+      8,
+      156,
+      55,
+      217,
+      211,
+      80,
+      127,
+      124,
+      40,
+      36,
+      70,
+      254,
+      15,
+      65,
+      18,
+      223,
+      184,
+      250,
+      169,
+      285,
+      313,
+      182,
+      210,
+      272,
+      278,
+      0,
+      181,
+      76,
+      161,
+      147,
+      483,
+      87,
+      429,
+      475,
+      19,
+      466,
+      52,
+      359,
+      129,
+      148,
+      392,
+      174,
+      178,
+      344,
+      492,
+      49,
+      310,
+      241,
+      296,
+      140,
+      289,
+      474,
+      208,
+      463,
+      488,
+      343,
+      412,
+      280,
+      422,
+      50,
+      495,
+      111,
+      303,
+      108,
+      4,
+      220,
+      193,
+      461,
+      190,
+      357,
+      206,
+      214,
+      270,
+      336,
+      38,
+      228,
+      158,
+      96,
+      94,
+      33,
+      487,
+      281,
+      31,
+      301,
+      248,
+      227,
+      370,
+      189,
+      104,
+      130,
+      259,
+      300,
+      465,
+      314,
+      439,
+      295,
+      405,
+      71,
+      325,
+      362,
+      471,
+      283,
+      312,
+      264,
+      151,
+      397,
+      481,
+      173,
+      360,
+      331,
+      489,
+      470,
+      136,
+      309,
+      142,
+      350,
+      433,
+      404,
+      297,
+      415,
+      51,
+      244,
+      334,
+      341,
+      114,
+      9,
+      44,
+      382,
+      468,
+      426,
+      393,
+      121,
+      92,
+      112,
+      22,
+      366,
+      200,
+      48,
+      10,
+      203,
+      115,
+      53,
+      102,
+      364,
+      233,
+      385,
+      342,
+      60,
+      490,
+      105,
+      34,
+      353,
+      324,
+      35,
+      6,
+      219,
+      464,
+      17,
+      269,
+      245,
+      261,
+      88,
+      249,
+      3,
+      138,
+      399,
+      175,
+      150,
+      257,
+      376,
+      99,
+      486,
+      12,
+      103,
+      201,
+      478,
+      304,
+      299,
+      162,
+      417,
+      230,
+      456,
+      188,
+      273,
+      371,
+      430,
+      266,
+      363,
+      377,
+      64,
+      58,
+      323,
+      5,
+      66,
+      145,
+      351,
+      133,
+      243,
+      383,
+      160,
+      449,
+      356,
+      496,
+      298,
+      326,
+      195,
+      386,
+      338,
+      307,
+      473,
+      337,
+      441,
+      67,
+      202,
+      149,
+      293,
+      154,
+      406,
+      221,
+      167,
+      305,
+      30
+    ],
+    "validation_indices": [
+      395,
+      403,
+      391,
+      21,
+      260,
+      153,
+      72,
+      131,
+      177,
+      493,
+      205,
+      54,
+      83,
+      345,
+      454,
+      90,
+      445,
+      14,
+      218,
+      56,
+      61,
+      176,
+      57,
+      368,
+      425,
+      20,
+      354,
+      321,
+      271,
+      216,
+      457,
+      485,
+      467,
+      157,
+      207,
+      355,
+      284,
+      390,
+      86,
+      418,
+      287,
+      410,
+      100,
+      462,
+      123,
+      286,
+      491,
+      291,
+      347,
+      84,
+      282,
+      197,
+      263,
+      374,
+      274,
+      367,
+      452,
+      204,
+      251,
+      292,
+      179,
+      143,
+      170,
+      171,
+      1,
+      137,
+      116,
+      400,
+      97,
+      2,
+      435,
+      118,
+      212,
+      369,
+      408,
+      239,
+      451,
+      413,
+      252,
+      229,
+      82,
+      330,
+      322,
+      37,
+      23,
+      352,
+      311,
+      215,
+      168,
+      187,
+      29,
+      246,
+      459,
+      346,
+      93,
+      389,
+      77,
+      440,
+      396,
+      101
+    ],
+    "validation_size": 0.2
+  },
+  "validation": [
+    {
+      "accuracy": 0.99,
+      "classes": [
+        "beagle",
+        "boxer",
+        "chihuahua",
+        "pug",
+        "samoyed"
+      ],
+      "configuration": "baseline_224",
+      "confusion_matrix": [
+        [
+          20,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          19,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          20,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          20,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          20
+        ]
+      ],
+      "macro_f1": 0.9899937460913071,
+      "report": {
+        "accuracy": 0.99,
+        "beagle": {
+          "f1-score": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 20.0
+        },
+        "boxer": {
+          "f1-score": 0.9743589743589743,
+          "precision": 1.0,
+          "recall": 0.95,
+          "support": 20.0
+        },
+        "chihuahua": {
+          "f1-score": 0.975609756097561,
+          "precision": 0.9523809523809523,
+          "recall": 1.0,
+          "support": 20.0
+        },
+        "macro avg": {
+          "f1-score": 0.9899937460913071,
+          "precision": 0.9904761904761905,
+          "recall": 0.99,
+          "support": 100.0
+        },
+        "pug": {
+          "f1-score": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 20.0
+        },
+        "samoyed": {
+          "f1-score": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 20.0
+        },
+        "weighted avg": {
+          "f1-score": 0.9899937460913071,
+          "precision": 0.9904761904761905,
+          "recall": 0.99,
+          "support": 100.0
+        }
+      },
+      "resolution": 224,
+      "samples": 100,
+      "tokens": 257
+    },
+    {
+      "accuracy": 0.95,
+      "classes": [
+        "beagle",
+        "boxer",
+        "chihuahua",
+        "pug",
+        "samoyed"
+      ],
+      "configuration": "reduced_112",
+      "confusion_matrix": [
+        [
+          18,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          19,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          19,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          19,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          20
+        ]
+      ],
+      "macro_f1": 0.9502188868042527,
+      "report": {
+        "accuracy": 0.95,
+        "beagle": {
+          "f1-score": 0.9230769230769231,
+          "precision": 0.9473684210526315,
+          "recall": 0.9,
+          "support": 20.0
+        },
+        "boxer": {
+          "f1-score": 0.926829268292683,
+          "precision": 0.9047619047619048,
+          "recall": 0.95,
+          "support": 20.0
+        },
+        "chihuahua": {
+          "f1-score": 0.926829268292683,
+          "precision": 0.9047619047619048,
+          "recall": 0.95,
+          "support": 20.0
+        },
+        "macro avg": {
+          "f1-score": 0.9502188868042527,
+          "precision": 0.9513784461152882,
+          "recall": 0.95,
+          "support": 100.0
+        },
+        "pug": {
+          "f1-score": 0.9743589743589743,
+          "precision": 1.0,
+          "recall": 0.95,
+          "support": 20.0
+        },
+        "samoyed": {
+          "f1-score": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 20.0
+        },
+        "weighted avg": {
+          "f1-score": 0.9502188868042526,
+          "precision": 0.9513784461152882,
+          "recall": 0.95,
+          "support": 100.0
+        }
+      },
+      "resolution": 112,
+      "samples": 100,
+      "tokens": 65
+    },
+    {
+      "accuracy": 0.96,
+      "classes": [
+        "beagle",
+        "boxer",
+        "chihuahua",
+        "pug",
+        "samoyed"
+      ],
+      "configuration": "roi_reduced_112_s0p8",
+      "confusion_matrix": [
+        [
+          19,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          19,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          20,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          19,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          19
+        ]
+      ],
+      "macro_f1": 0.9602197802197802,
+      "report": {
+        "accuracy": 0.96,
+        "beagle": {
+          "f1-score": 0.95,
+          "precision": 0.95,
+          "recall": 0.95,
+          "support": 20.0
+        },
+        "boxer": {
+          "f1-score": 0.95,
+          "precision": 0.95,
+          "recall": 0.95,
+          "support": 20.0
+        },
+        "chihuahua": {
+          "f1-score": 0.9523809523809523,
+          "precision": 0.9090909090909091,
+          "recall": 1.0,
+          "support": 20.0
+        },
+        "macro avg": {
+          "f1-score": 0.9602197802197802,
+          "precision": 0.9618181818181817,
+          "recall": 0.96,
+          "support": 100.0
+        },
+        "pug": {
+          "f1-score": 0.9743589743589743,
+          "precision": 1.0,
+          "recall": 0.95,
+          "support": 20.0
+        },
+        "samoyed": {
+          "f1-score": 0.9743589743589743,
+          "precision": 1.0,
+          "recall": 0.95,
+          "support": 20.0
+        },
+        "weighted avg": {
+          "f1-score": 0.9602197802197803,
+          "precision": 0.9618181818181819,
+          "recall": 0.96,
+          "support": 100.0
+        }
+      },
+      "resolution": 112,
+      "samples": 100,
+      "tokens": 65
+    },
+    {
+      "accuracy": 0.94,
+      "classes": [
+        "beagle",
+        "boxer",
+        "chihuahua",
+        "pug",
+        "samoyed"
+      ],
+      "configuration": "reduced_84",
+      "confusion_matrix": [
+        [
+          18,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          19,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          18,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          19,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          20
+        ]
+      ],
+      "macro_f1": 0.9404815509693559,
+      "report": {
+        "accuracy": 0.94,
+        "beagle": {
+          "f1-score": 0.9,
+          "precision": 0.9,
+          "recall": 0.9,
+          "support": 20.0
+        },
+        "boxer": {
+          "f1-score": 0.95,
+          "precision": 0.95,
+          "recall": 0.95,
+          "support": 20.0
+        },
+        "chihuahua": {
+          "f1-score": 0.8780487804878049,
+          "precision": 0.8571428571428571,
+          "recall": 0.9,
+          "support": 20.0
+        },
+        "macro avg": {
+          "f1-score": 0.9404815509693559,
+          "precision": 0.9414285714285715,
+          "recall": 0.9400000000000001,
+          "support": 100.0
+        },
+        "pug": {
+          "f1-score": 0.9743589743589743,
+          "precision": 1.0,
+          "recall": 0.95,
+          "support": 20.0
+        },
+        "samoyed": {
+          "f1-score": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 20.0
+        },
+        "weighted avg": {
+          "f1-score": 0.9404815509693559,
+          "precision": 0.9414285714285714,
+          "recall": 0.94,
+          "support": 100.0
+        }
+      },
+      "resolution": 84,
+      "samples": 100,
+      "tokens": 37
+    },
+    {
+      "accuracy": 0.94,
+      "classes": [
+        "beagle",
+        "boxer",
+        "chihuahua",
+        "pug",
+        "samoyed"
+      ],
+      "configuration": "roi_reduced_84_s0p8",
+      "confusion_matrix": [
+        [
+          18,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          19,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          19,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          19,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          19
+        ]
+      ],
+      "macro_f1": 0.940475297060663,
+      "report": {
+        "accuracy": 0.94,
+        "beagle": {
+          "f1-score": 0.9,
+          "precision": 0.9,
+          "recall": 0.9,
+          "support": 20.0
+        },
+        "boxer": {
+          "f1-score": 0.926829268292683,
+          "precision": 0.9047619047619048,
+          "recall": 0.95,
+          "support": 20.0
+        },
+        "chihuahua": {
+          "f1-score": 0.926829268292683,
+          "precision": 0.9047619047619048,
+          "recall": 0.95,
+          "support": 20.0
+        },
+        "macro avg": {
+          "f1-score": 0.940475297060663,
+          "precision": 0.9419047619047619,
+          "recall": 0.9400000000000001,
+          "support": 100.0
+        },
+        "pug": {
+          "f1-score": 0.9743589743589743,
+          "precision": 1.0,
+          "recall": 0.95,
+          "support": 20.0
+        },
+        "samoyed": {
+          "f1-score": 0.9743589743589743,
+          "precision": 1.0,
+          "recall": 0.95,
+          "support": 20.0
+        },
+        "weighted avg": {
+          "f1-score": 0.940475297060663,
+          "precision": 0.9419047619047619,
+          "recall": 0.94,
+          "support": 100.0
+        }
+      },
+      "resolution": 84,
+      "samples": 100,
+      "tokens": 37
+    },
+    {
+      "accuracy": 0.69,
+      "classes": [
+        "beagle",
+        "boxer",
+        "chihuahua",
+        "pug",
+        "samoyed"
+      ],
+      "configuration": "reduced_56",
+      "confusion_matrix": [
+        [
+          17,
+          1,
+          2,
+          0,
+          0
+        ],
+        [
+          7,
+          11,
+          0,
+          2,
+          0
+        ],
+        [
+          6,
+          2,
+          10,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          13,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0,
+          18
+        ]
+      ],
+      "macro_f1": 0.6884183084183084,
+      "report": {
+        "accuracy": 0.69,
+        "beagle": {
+          "f1-score": 0.6538461538461539,
+          "precision": 0.53125,
+          "recall": 0.85,
+          "support": 20.0
+        },
+        "boxer": {
+          "f1-score": 0.5945945945945946,
+          "precision": 0.6470588235294118,
+          "recall": 0.55,
+          "support": 20.0
+        },
+        "chihuahua": {
+          "f1-score": 0.5714285714285714,
+          "precision": 0.6666666666666666,
+          "recall": 0.5,
+          "support": 20.0
+        },
+        "macro avg": {
+          "f1-score": 0.6884183084183084,
+          "precision": 0.7114950980392156,
+          "recall": 0.69,
+          "support": 100.0
+        },
+        "pug": {
+          "f1-score": 0.7222222222222222,
+          "precision": 0.8125,
+          "recall": 0.65,
+          "support": 20.0
+        },
+        "samoyed": {
+          "f1-score": 0.9,
+          "precision": 0.9,
+          "recall": 0.9,
+          "support": 20.0
+        },
+        "weighted avg": {
+          "f1-score": 0.6884183084183084,
+          "precision": 0.7114950980392157,
+          "recall": 0.69,
+          "support": 100.0
+        }
+      },
+      "resolution": 56,
+      "samples": 100,
+      "tokens": 17
+    },
+    {
+      "accuracy": 0.68,
+      "classes": [
+        "beagle",
+        "boxer",
+        "chihuahua",
+        "pug",
+        "samoyed"
+      ],
+      "configuration": "roi_reduced_56_s0p8",
+      "confusion_matrix": [
+        [
+          14,
+          5,
+          1,
+          0,
+          0
+        ],
+        [
+          5,
+          10,
+          3,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          12,
+          1,
+          1
+        ],
+        [
+          0,
+          2,
+          1,
+          15,
+          2
+        ],
+        [
+          0,
+          2,
+          0,
+          1,
+          17
+        ]
+      ],
+      "macro_f1": 0.6812716588577113,
+      "report": {
+        "accuracy": 0.68,
+        "beagle": {
+          "f1-score": 0.6511627906976745,
+          "precision": 0.6086956521739131,
+          "recall": 0.7,
+          "support": 20.0
+        },
+        "boxer": {
+          "f1-score": 0.4878048780487805,
+          "precision": 0.47619047619047616,
+          "recall": 0.5,
+          "support": 20.0
+        },
+        "chihuahua": {
+          "f1-score": 0.6486486486486487,
+          "precision": 0.7058823529411765,
+          "recall": 0.6,
+          "support": 20.0
+        },
+        "macro avg": {
+          "f1-score": 0.6812716588577113,
+          "precision": 0.6867251248325419,
+          "recall": 0.6799999999999999,
+          "support": 100.0
+        },
+        "pug": {
+          "f1-score": 0.7894736842105263,
+          "precision": 0.8333333333333334,
+          "recall": 0.75,
+          "support": 20.0
+        },
+        "samoyed": {
+          "f1-score": 0.8292682926829268,
+          "precision": 0.8095238095238095,
+          "recall": 0.85,
+          "support": 20.0
+        },
+        "weighted avg": {
+          "f1-score": 0.6812716588577115,
+          "precision": 0.6867251248325417,
+          "recall": 0.68,
+          "support": 100.0
+        }
+      },
+      "resolution": 56,
+      "samples": 100,
+      "tokens": 17
+    },
+    {
+      "accuracy": 0.61,
+      "classes": [
+        "beagle",
+        "boxer",
+        "chihuahua",
+        "pug",
+        "samoyed"
+      ],
+      "configuration": "reduced_42",
+      "confusion_matrix": [
+        [
+          10,
+          3,
+          4,
+          2,
+          1
+        ],
+        [
+          6,
+          12,
+          0,
+          1,
+          1
+        ],
+        [
+          3,
+          3,
+          11,
+          0,
+          3
+        ],
+        [
+          3,
+          4,
+          2,
+          11,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          1,
+          17
+        ]
+      ],
+      "macro_f1": 0.6102745235180975,
+      "report": {
+        "accuracy": 0.61,
+        "beagle": {
+          "f1-score": 0.47619047619047616,
+          "precision": 0.45454545454545453,
+          "recall": 0.5,
+          "support": 20.0
+        },
+        "boxer": {
+          "f1-score": 0.5581395348837209,
+          "precision": 0.5217391304347826,
+          "recall": 0.6,
+          "support": 20.0
+        },
+        "chihuahua": {
+          "f1-score": 0.5789473684210527,
+          "precision": 0.6111111111111112,
+          "recall": 0.55,
+          "support": 20.0
+        },
+        "macro avg": {
+          "f1-score": 0.6102745235180975,
+          "precision": 0.6186912604303908,
+          "recall": 0.6100000000000001,
+          "support": 100.0
+        },
+        "pug": {
+          "f1-score": 0.6285714285714286,
+          "precision": 0.7333333333333333,
+          "recall": 0.55,
+          "support": 20.0
+        },
+        "samoyed": {
+          "f1-score": 0.8095238095238095,
+          "precision": 0.7727272727272727,
+          "recall": 0.85,
+          "support": 20.0
+        },
+        "weighted avg": {
+          "f1-score": 0.6102745235180975,
+          "precision": 0.6186912604303908,
+          "recall": 0.61,
+          "support": 100.0
+        }
+      },
+      "resolution": 42,
+      "samples": 100,
+      "tokens": 10
+    },
+    {
+      "accuracy": 0.62,
+      "classes": [
+        "beagle",
+        "boxer",
+        "chihuahua",
+        "pug",
+        "samoyed"
+      ],
+      "configuration": "roi_reduced_42_s0p8",
+      "confusion_matrix": [
+        [
+          10,
+          6,
+          4,
+          0,
+          0
+        ],
+        [
+          6,
+          12,
+          1,
+          1,
+          0
+        ],
+        [
+          3,
+          4,
+          9,
+          1,
+          3
+        ],
+        [
+          1,
+          2,
+          2,
+          14,
+          1
+        ],
+        [
+          0,
+          3,
+          0,
+          0,
+          17
+        ]
+      ],
+      "macro_f1": 0.6235368736666089,
+      "report": {
+        "accuracy": 0.62,
+        "beagle": {
+          "f1-score": 0.5,
+          "precision": 0.5,
+          "recall": 0.5,
+          "support": 20.0
+        },
+        "boxer": {
+          "f1-score": 0.5106382978723404,
+          "precision": 0.4444444444444444,
+          "recall": 0.6,
+          "support": 20.0
+        },
+        "chihuahua": {
+          "f1-score": 0.5,
+          "precision": 0.5625,
+          "recall": 0.45,
+          "support": 20.0
+        },
+        "macro avg": {
+          "f1-score": 0.6235368736666089,
+          "precision": 0.6382936507936507,
+          "recall": 0.62,
+          "support": 100.0
+        },
+        "pug": {
+          "f1-score": 0.7777777777777778,
+          "precision": 0.875,
+          "recall": 0.7,
+          "support": 20.0
+        },
+        "samoyed": {
+          "f1-score": 0.8292682926829268,
+          "precision": 0.8095238095238095,
+          "recall": 0.85,
+          "support": 20.0
+        },
+        "weighted avg": {
+          "f1-score": 0.623536873666609,
+          "precision": 0.6382936507936507,
+          "recall": 0.62,
+          "support": 100.0
+        }
+      },
+      "resolution": 42,
+      "samples": 100,
+      "tokens": 10
+    },
+    {
+      "accuracy": 0.49,
+      "classes": [
+        "beagle",
+        "boxer",
+        "chihuahua",
+        "pug",
+        "samoyed"
+      ],
+      "configuration": "reduced_28",
+      "confusion_matrix": [
+        [
+          7,
+          5,
+          1,
+          3,
+          4
+        ],
+        [
+          5,
+          11,
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          7,
+          5,
+          4
+        ],
+        [
+          5,
+          2,
+          2,
+          9,
+          2
+        ],
+        [
+          0,
+          0,
+          2,
+          3,
+          15
+        ]
+      ],
+      "macro_f1": 0.4827924249663381,
+      "report": {
+        "accuracy": 0.49,
+        "beagle": {
+          "f1-score": 0.358974358974359,
+          "precision": 0.3684210526315789,
+          "recall": 0.35,
+          "support": 20.0
+        },
+        "boxer": {
+          "f1-score": 0.55,
+          "precision": 0.55,
+          "recall": 0.55,
+          "support": 20.0
+        },
+        "chihuahua": {
+          "f1-score": 0.42424242424242425,
+          "precision": 0.5384615384615384,
+          "recall": 0.35,
+          "support": 20.0
+        },
+        "macro avg": {
+          "f1-score": 0.4827924249663381,
+          "precision": 0.48857931542142075,
+          "recall": 0.49000000000000005,
+          "support": 100.0
+        },
+        "pug": {
+          "f1-score": 0.42857142857142855,
+          "precision": 0.4090909090909091,
+          "recall": 0.45,
+          "support": 20.0
+        },
+        "samoyed": {
+          "f1-score": 0.6521739130434783,
+          "precision": 0.5769230769230769,
+          "recall": 0.75,
+          "support": 20.0
+        },
+        "weighted avg": {
+          "f1-score": 0.482792424966338,
+          "precision": 0.4885793154214207,
+          "recall": 0.49,
+          "support": 100.0
+        }
+      },
+      "resolution": 28,
+      "samples": 100,
+      "tokens": 5
+    },
+    {
+      "accuracy": 0.58,
+      "classes": [
+        "beagle",
+        "boxer",
+        "chihuahua",
+        "pug",
+        "samoyed"
+      ],
+      "configuration": "roi_reduced_28_s0p8",
+      "confusion_matrix": [
+        [
+          8,
+          5,
+          4,
+          2,
+          1
+        ],
+        [
+          3,
+          11,
+          3,
+          1,
+          2
+        ],
+        [
+          3,
+          2,
+          10,
+          3,
+          2
+        ],
+        [
+          2,
+          3,
+          1,
+          13,
+          1
+        ],
+        [
+          1,
+          2,
+          1,
+          0,
+          16
+        ]
+      ],
+      "macro_f1": 0.5770904561602236,
+      "report": {
+        "accuracy": 0.58,
+        "beagle": {
+          "f1-score": 0.43243243243243246,
+          "precision": 0.47058823529411764,
+          "recall": 0.4,
+          "support": 20.0
+        },
+        "boxer": {
+          "f1-score": 0.5116279069767442,
+          "precision": 0.4782608695652174,
+          "recall": 0.55,
+          "support": 20.0
+        },
+        "chihuahua": {
+          "f1-score": 0.5128205128205128,
+          "precision": 0.5263157894736842,
+          "recall": 0.5,
+          "support": 20.0
+        },
+        "macro avg": {
+          "f1-score": 0.5770904561602236,
+          "precision": 0.5773296295843071,
+          "recall": 0.5800000000000001,
+          "support": 100.0
+        },
+        "pug": {
+          "f1-score": 0.6666666666666666,
+          "precision": 0.6842105263157895,
+          "recall": 0.65,
+          "support": 20.0
+        },
+        "samoyed": {
+          "f1-score": 0.7619047619047619,
+          "precision": 0.7272727272727273,
+          "recall": 0.8,
+          "support": 20.0
+        },
+        "weighted avg": {
+          "f1-score": 0.5770904561602237,
+          "precision": 0.5773296295843072,
+          "recall": 0.58,
+          "support": 100.0
+        }
+      },
+      "resolution": 28,
+      "samples": 100,
+      "tokens": 5
+    }
+  ]
+}

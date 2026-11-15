@@ -33,7 +33,7 @@ def extract_roi(image, scale=0.8, *, return_gradient=False):
 
 
 def save_roi_examples(paths, labels, output, *, scale=0.8, seed=42, count=15):
-    """Draw seeded validation samples, with no selection by label or visual quality."""
+    """Draw randomly sampled images, without selecting by visual quality."""
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -63,16 +63,15 @@ def save_roi_examples(paths, labels, output, *, scale=0.8, seed=42, count=15):
 
 def main():
     import argparse
-    from src.pipeline import DATASET, ROOT, load_dataset, validation_indices
-    parser = argparse.ArgumentParser(description="Preview seeded trainval validation ROIs.")
+    from src.pipeline import DATASET, ROOT, load_dataset
+    parser = argparse.ArgumentParser(description="Preview ROIs from training images.")
     parser.add_argument("--dataset", type=type(DATASET), default=DATASET)
     parser.add_argument("--scale", type=float, default=0.8)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--count", type=int, default=15)
     args = parser.parse_args()
     paths, labels = load_dataset("trainval", args.dataset)
-    _, val = validation_indices(labels, seed=args.seed)
-    save_roi_examples([paths[i] for i in val], labels[val], ROOT / "results/roi_validation.png",
+    save_roi_examples(paths, labels, ROOT / "results/roi_examples.png",
                       scale=args.scale, seed=args.seed, count=args.count)
 
 

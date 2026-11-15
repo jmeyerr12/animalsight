@@ -8,7 +8,7 @@ import streamlit as st
 
 from src.benchmark import timed_prediction
 from src.experiments import load_trained_artifacts
-from src.pipeline import ROOT
+from src.pipeline import BREEDS, ROOT
 from src.roi import extract_roi
 from src.transformer_model import config_id, configurations, load_runtime
 
@@ -33,7 +33,8 @@ def main():
     st.set_page_config(page_title='AnimalSight', page_icon='🐾', layout='wide')
     st.title('AnimalSight')
     st.write('Classical ROI selection + frozen DINOv2 + SVM')
-    st.caption('UFPR Computer Vision · Five breeds: beagle, boxer, chihuahua, pug and samoyed.')
+    breeds = ', '.join(breed.replace('_', ' ') for breed in sorted(BREEDS))
+    st.caption(f'UFPR Computer Vision · Five breeds: {breeds}.')
     labels = ['Baseline · 224 × 224', 'Reduced · 112 × 112', 'ROI Reduced · 112 × 112']
     selected = st.selectbox('Configuration', range(3), format_func=lambda i: labels[i])
     upload = st.file_uploader('Upload a dog photograph', type=['jpg', 'jpeg', 'png', 'webp'])
@@ -41,7 +42,7 @@ def main():
     model_paths = [ROOT / 'models' / f'{config_id(config)}.joblib' for config in configs]
     missing = [path.name for path in model_paths if not path.is_file()]
     if missing:
-        st.info('Train the classifiers first: python -m src.experiments train')
+        st.info('Train the classifiers first: python -m src.experiments')
     if upload is None:
         st.caption('Predictions are restricted to these five breeds; other animals or objects are not detected.')
         return
@@ -69,9 +70,9 @@ def main():
                 prediction, latency = timed_prediction(image, runtime, artifacts[selected])
         except (OSError, ValueError, RuntimeError) as error:
             st.error(f'Unable to classify: {error}')
-            st.info('Run python -m src.experiments train with the current environment, then retry.')
+            st.info('Run python -m src.experiments with the current environment, then retry.')
             return
-        st.success(f'Predicted breed: {prediction.title()}')
+        st.success(f'Predicted breed: {prediction.replace("_", " ").title()}')
         st.metric('Inference time', f'{latency:.2f} ms')
         st.caption(f'Device: {runtime["device"]} · Batch size: 1 · Initial model load: {load_seconds:.2f} s (cached, excluded from inference).')
         st.caption('Inference includes preprocessing, ROI when selected, DINOv2 and SVM. Upload decoding and previews are excluded. A first prediction may be slower than the warmed benchmark.')

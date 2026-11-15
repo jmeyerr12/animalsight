@@ -12,7 +12,7 @@ import torch
 
 from src.experiments import add_common_arguments, evaluation_data, load_trained_artifacts, result_row, write_csv
 from src.pipeline import ROOT, file_manifest, fingerprint, prediction_metrics, read_image, write_json
-from src.transformer_model import config_id, configurations, load_runtime, predict_image
+from src.transformer_model import REDUCED_SIZES, config_id, configurations, load_runtime, predict_image
 
 
 def synchronize(runtime):
@@ -138,6 +138,7 @@ def run_benchmark(runtime, configs, *, dataset, models_dir, results_dir, repeats
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     add_common_arguments(parser)
+    parser.add_argument('--reduced-size', type=int, choices=REDUCED_SIZES, default=112)
     parser.add_argument('--repeats', type=int, default=3)
     parser.add_argument('--warmup', type=int, default=5)
     parser.add_argument('--seed', type=int, default=42)
@@ -145,7 +146,7 @@ def main():
     configs = configurations(args.reduced_size, args.roi_scale)
     runtime = load_runtime(args.device, local_files_only=args.offline, threads=args.threads)
     run_benchmark(runtime, configs, dataset=args.dataset, models_dir=args.models_dir,
-                  results_dir=args.results_dir or ROOT / f'results/roi_{args.reduced_size}',
+                  results_dir=args.results_dir or ROOT / f'results/benchmark_{args.reduced_size}',
                   repeats=args.repeats, warmup=args.warmup, seed=args.seed)
 
 
