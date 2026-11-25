@@ -12,7 +12,33 @@ from sklearn.svm import SVC
 
 ROOT = Path(__file__).resolve().parent.parent
 DATASET = ROOT / "data" / "oxford-pet"
-BREEDS = {"beagle", "boxer", "chihuahua", "samoyed", "yorkshire_terrier"}
+BREEDS = {
+    "american_bulldog",
+    "american_pit_bull_terrier",
+    "basset_hound",
+    "beagle",
+    "boxer",
+    "chihuahua",
+    "english_cocker_spaniel",
+    "english_setter",
+    "german_shorthaired",
+    "great_pyrenees",
+    "havanese",
+    "japanese_chin",
+    "keeshond",
+    "leonberger",
+    "miniature_pinscher",
+    "newfoundland",
+    "pomeranian",
+    "pug",
+    "saint_bernard",
+    "samoyed",
+    "scottish_terrier",
+    "shiba_inu",
+    "staffordshire_bull_terrier",
+    "wheaten_terrier",
+    "yorkshire_terrier",
+}
 SVM_PARAMETERS = {"kernel": "rbf", "C": 10, "gamma": "scale"}
 
 
